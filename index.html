@@ -632,7 +632,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <button class="viewer-btn" onclick="zoomOut()" title="Zoom out">－</button>
         <button class="viewer-btn" onclick="resetZoom()" title="Reset">⤢</button>
       </div>
-      <div class="viewer-zoom-hint">Scroll to zoom · Drag to move</div>
+      <div class="viewer-zoom-hint">Click to enlarge · Scroll to zoom · Drag to move</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <!-- Title -->
@@ -656,6 +656,24 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <button class="btn-modal-secondary" onclick="closeModal()">Back to Catalog</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX (full-screen image) -->
+<div id="lightbox" onclick="if(event.target===this)closeLightbox()"
+  style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.93);
+         align-items:center;justify-content:center;cursor:zoom-out;padding:20px">
+  <img id="lightbox-img" src="" alt=""
+    style="max-width:92vw;max-height:92vh;object-fit:contain;border-radius:10px;
+           box-shadow:0 24px 80px rgba(0,0,0,.6);cursor:default"/>
+  <button onclick="closeLightbox()"
+    style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,.15);
+           backdrop-filter:blur(6px);border:none;color:#fff;font-size:1.4rem;line-height:1;
+           width:44px;height:44px;border-radius:50%;cursor:pointer;
+           display:flex;align-items:center;justify-content:center">✕</button>
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+              color:rgba(255,255,255,.45);font-size:.75rem;letter-spacing:.5px">
+    Click outside or press Esc to close
   </div>
 </div>
 
@@ -893,7 +911,8 @@ function zoomIn(){viewerScale=Math.min(5,viewerScale+0.3);applyTransform();}
 function zoomOut(){viewerScale=Math.max(0.7,viewerScale-0.3);if(viewerScale<=1){viewerX=0;viewerY=0;}applyTransform();}
 function resetZoom(){viewerScale=DEFAULT_SCALE;viewerX=0;viewerY=0;applyTransform();}
 
-// Wheel zoom + drag-to-pan
+// Wheel zoom + drag-to-pan + click-to-lightbox
+let significantDrag=false;
 (function(){
   const v=document.getElementById('modal-viewer');
   v.addEventListener('wheel',e=>{
@@ -904,18 +923,35 @@ function resetZoom(){viewerScale=DEFAULT_SCALE;viewerX=0;viewerY=0;applyTransfor
     applyTransform();
   },{passive:false});
   v.addEventListener('mousedown',e=>{
-    if(viewerScale<=1||e.button!==0)return;
+    if(e.button!==0)return;
+    significantDrag=false;
     isDragging=true; dragSX=e.clientX; dragSY=e.clientY; dragOX=viewerX; dragOY=viewerY;
-    v.classList.add('dragging'); e.preventDefault();
+    if(viewerScale>1) v.classList.add('dragging');
+    e.preventDefault();
   });
   window.addEventListener('mousemove',e=>{
     if(!isDragging)return;
-    viewerX=dragOX+e.clientX-dragSX; viewerY=dragOY+e.clientY-dragSY; applyTransform();
+    const dx=e.clientX-dragSX, dy=e.clientY-dragSY;
+    if(Math.abs(dx)>5||Math.abs(dy)>5) significantDrag=true;
+    if(viewerScale>1){viewerX=dragOX+dx; viewerY=dragOY+dy; applyTransform();}
   });
   window.addEventListener('mouseup',()=>{
     if(isDragging){isDragging=false;document.getElementById('modal-viewer').classList.remove('dragging');}
   });
+  // Click (not drag) → open lightbox
+  v.addEventListener('click',e=>{
+    if(e.target.closest('.viewer-btn,.modal-close')) return;
+    if(!significantDrag) openLightbox(document.getElementById('modal-img').src);
+    significantDrag=false;
+  });
 })();
+
+function openLightbox(src){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src=src;
+  lb.style.display='flex';
+}
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
 
 function setThumbActive(el){
   document.querySelectorAll('.modal-thumb').forEach(t=>t.classList.remove('active'));
@@ -979,7 +1015,12 @@ function closeModal(){
   resetZoom();
 }
 function closeModalOutside(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('lightbox').style.display!=='none') closeLightbox();
+    else closeModal();
+  }
+});
 </script>
 </body>
 </html>
