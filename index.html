@@ -217,7 +217,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
 @keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
 /* Image viewer */
-.modal-viewer{position:relative;height:480px;background:#0d2246;border-radius:20px 20px 0 0;overflow:hidden;cursor:grab}
+.modal-viewer{position:relative;height:560px;background:#0d2246;border-radius:20px 20px 0 0;overflow:hidden;cursor:grab}
 .modal-viewer.dragging{cursor:grabbing}
 .modal-viewer-img-wrap{width:100%;height:100%;overflow:hidden;position:relative}
 .modal-viewer-img{width:100%;height:100%;object-fit:contain;transform-origin:center;
@@ -900,7 +900,7 @@ document.getElementById('grid-accessories').innerHTML = accessories.map(buildCar
 document.getElementById('grid-tub').innerHTML = tubs.map(buildCard).join('');
 
 // ── VIEWER STATE ──
-const DEFAULT_SCALE=1.6;
+const DEFAULT_SCALE=2.5;
 let viewerScale=DEFAULT_SCALE, viewerX=0, viewerY=0;
 let isDragging=false, dragSX=0, dragSY=0, dragOX=0, dragOY=0;
 
