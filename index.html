@@ -209,34 +209,62 @@ footer{background:var(--navy);padding:48px 80px 28px}
 
 /* ── MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:300;
-  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
-  align-items:center;justify-content:center;padding:24px}
+  background:rgba(0,0,0,.65);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:20px}
 .modal-overlay.open{display:flex}
-.modal{background:#fff;border-radius:20px;max-width:860px;width:100%;
-  max-height:90vh;overflow-y:auto;animation:slideUp .3s ease}
+.modal{background:#fff;border-radius:20px;max-width:900px;width:100%;
+  max-height:92vh;overflow-y:auto;animation:slideUp .3s ease;display:flex;flex-direction:column}
 @keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.modal-header{position:relative;height:300px;border-radius:20px 20px 0 0;overflow:hidden}
-.modal-header img{width:100%;height:100%;object-fit:cover}
-.modal-header-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,34,70,.85) 35%,transparent 65%)}
-.modal-header-text{position:absolute;bottom:24px;left:28px;color:#fff}
-.modal-header-text .mcat{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--orange);font-weight:700;margin-bottom:4px}
-.modal-header-text h2{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800}
-.modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;
+
+/* Image viewer */
+.modal-viewer{position:relative;height:380px;background:#0d2246;border-radius:20px 20px 0 0;overflow:hidden;cursor:grab}
+.modal-viewer.dragging{cursor:grabbing}
+.modal-viewer-img-wrap{width:100%;height:100%;overflow:hidden;position:relative}
+.modal-viewer-img{width:100%;height:100%;object-fit:contain;transform-origin:center;
+  transition:transform .1s ease;user-select:none;pointer-events:none}
+.viewer-controls{position:absolute;bottom:12px;right:12px;display:flex;gap:6px;z-index:10}
+.viewer-btn{background:rgba(255,255,255,.15);backdrop-filter:blur(4px);color:#fff;border:none;
+  border-radius:8px;width:34px;height:34px;font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s}
+.viewer-btn:hover{background:rgba(255,255,255,.3)}
+.viewer-zoom-hint{position:absolute;bottom:12px;left:12px;color:rgba(255,255,255,.55);
+  font-size:.7rem;letter-spacing:.5px}
+
+/* Thumbnail strip */
+.modal-thumbstrip{display:flex;gap:8px;padding:12px 20px;background:#f8f9fb;
+  overflow-x:auto;border-bottom:1px solid #e5e7eb}
+.modal-thumbstrip::-webkit-scrollbar{height:4px}
+.modal-thumbstrip::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:2px}
+.modal-thumb{width:64px;height:64px;flex-shrink:0;border-radius:8px;overflow:hidden;
+  cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.modal-thumb.active{border-color:var(--orange)}
+.modal-thumb img{width:100%;height:100%;object-fit:cover}
+
+/* Combo section */
+.modal-combo{padding:16px 24px;background:#f0f4f8;border-bottom:1px solid #e5e7eb}
+.modal-combo-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--orange);margin-bottom:10px}
+.modal-combo-grid{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+.combo-item{flex-shrink:0;cursor:pointer;text-align:center;transition:transform .2s}
+.combo-item:hover{transform:translateY(-2px)}
+.combo-item img{width:80px;height:80px;object-fit:cover;border-radius:8px;border:2px solid transparent;transition:border-color .2s}
+.combo-item.active img{border-color:var(--orange)}
+.combo-item span{display:block;font-size:.65rem;color:var(--gray);margin-top:4px;font-weight:600}
+
+.modal-body{padding:24px 28px}
+.modal-desc{font-size:.88rem;color:var(--gray);line-height:1.8;margin-bottom:20px}
+.modal-specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.modal-spec{background:var(--light);border-radius:10px;padding:12px 14px}
+.modal-spec-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray);font-weight:700;margin-bottom:2px}
+.modal-spec-value{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;color:var(--navy)}
+.modal-header-text{padding:0 20px 14px;background:#0d2246}
+.modal-header-text .mcat{font-size:.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--orange);font-weight:700;padding-top:12px;display:block}
+.modal-header-text h2{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:#fff}
+.modal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;z-index:20;
   background:rgba(255,255,255,.9);border:none;border-radius:50%;cursor:pointer;
-  font-size:1rem;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:center}
+  font-size:.95rem;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:center}
 .modal-close:hover{background:#fff}
-.modal-body{padding:28px 32px}
-.modal-desc{font-size:.9rem;color:var(--gray);line-height:1.8;margin-bottom:24px}
-.modal-specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
-.modal-spec{background:var(--light);border-radius:10px;padding:14px 16px}
-.modal-spec-label{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray);font-weight:700;margin-bottom:2px}
-.modal-spec-value{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;color:var(--navy)}
-.modal-gallery-label{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:12px}
-.modal-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:24px}
-.modal-gallery-thumb{border-radius:8px;overflow:hidden;aspect-ratio:1;cursor:pointer}
-.modal-gallery-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
-.modal-gallery-thumb:hover img{transform:scale(1.08)}
-.modal-actions{display:flex;gap:10px}
+.modal-actions{display:flex;gap:10px;margin-top:4px}
 .btn-modal-primary{flex:1;background:var(--orange);color:#fff;border:none;border-radius:50px;
   padding:13px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;text-align:center}
 .btn-modal-primary:hover{background:#c9570f}
@@ -594,20 +622,35 @@ footer{background:var(--navy);padding:48px 80px 28px}
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
   <div class="modal">
-    <div class="modal-header">
-      <img id="modal-img" src="" alt=""/>
-      <div class="modal-header-overlay"></div>
-      <div class="modal-header-text">
-        <div class="mcat" id="modal-cat"></div>
-        <h2 id="modal-title"></h2>
+    <!-- Image viewer with zoom/pan -->
+    <div class="modal-viewer" id="modal-viewer">
+      <div class="modal-viewer-img-wrap" id="viewer-wrap">
+        <img id="modal-img" src="" alt="" class="modal-viewer-img" draggable="false"/>
       </div>
+      <div class="viewer-controls">
+        <button class="viewer-btn" onclick="zoomIn()" title="Zoom in">＋</button>
+        <button class="viewer-btn" onclick="zoomOut()" title="Zoom out">－</button>
+        <button class="viewer-btn" onclick="resetZoom()" title="Reset">⤢</button>
+      </div>
+      <div class="viewer-zoom-hint">Scroll to zoom · Drag to move</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
+    <!-- Title -->
+    <div class="modal-header-text">
+      <span class="mcat" id="modal-cat"></span>
+      <h2 id="modal-title"></h2>
+    </div>
+    <!-- Thumbnail strip -->
+    <div class="modal-thumbstrip" id="modal-thumbstrip"></div>
+    <!-- Combo section (pans that pair with this surround) -->
+    <div class="modal-combo" id="modal-combo" style="display:none">
+      <div class="modal-combo-label">Combine with a Shower Pan</div>
+      <div class="modal-combo-grid" id="modal-combo-grid"></div>
+    </div>
+    <!-- Body -->
     <div class="modal-body">
       <p class="modal-desc" id="modal-desc"></p>
       <div class="modal-specs-grid" id="modal-specs"></div>
-      <div class="modal-gallery-label" id="modal-gallery-label"></div>
-      <div class="modal-gallery" id="modal-gallery"></div>
       <div class="modal-actions">
         <button class="btn-modal-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});closeModal()">Request a Quote</button>
         <button class="btn-modal-secondary" onclick="closeModal()">Back to Catalog</button>
@@ -838,22 +881,104 @@ document.getElementById('grid-pans').innerHTML = pans.map(buildCard).join('');
 document.getElementById('grid-accessories').innerHTML = accessories.map(buildCard).join('');
 document.getElementById('grid-tub').innerHTML = tubs.map(buildCard).join('');
 
+// ── VIEWER STATE ──
+let viewerScale=1, viewerX=0, viewerY=0;
+let isDragging=false, dragSX=0, dragSY=0, dragOX=0, dragOY=0;
+
+function applyTransform(){
+  document.getElementById('modal-img').style.transform=`translate(${viewerX}px,${viewerY}px) scale(${viewerScale})`;
+}
+function zoomIn(){viewerScale=Math.min(4,viewerScale+0.3);applyTransform();}
+function zoomOut(){viewerScale=Math.max(1,viewerScale-0.3);if(viewerScale<=1){viewerX=0;viewerY=0;}applyTransform();}
+function resetZoom(){viewerScale=1;viewerX=0;viewerY=0;applyTransform();}
+
+// Wheel zoom + drag-to-pan
+(function(){
+  const v=document.getElementById('modal-viewer');
+  v.addEventListener('wheel',e=>{
+    e.preventDefault();
+    const d=e.deltaY<0?0.2:-0.2;
+    viewerScale=Math.min(4,Math.max(1,viewerScale+d));
+    if(viewerScale<=1){viewerX=0;viewerY=0;}
+    applyTransform();
+  },{passive:false});
+  v.addEventListener('mousedown',e=>{
+    if(viewerScale<=1||e.button!==0)return;
+    isDragging=true; dragSX=e.clientX; dragSY=e.clientY; dragOX=viewerX; dragOY=viewerY;
+    v.classList.add('dragging'); e.preventDefault();
+  });
+  window.addEventListener('mousemove',e=>{
+    if(!isDragging)return;
+    viewerX=dragOX+e.clientX-dragSX; viewerY=dragOY+e.clientY-dragSY; applyTransform();
+  });
+  window.addEventListener('mouseup',()=>{
+    if(isDragging){isDragging=false;document.getElementById('modal-viewer').classList.remove('dragging');}
+  });
+})();
+
+function setThumbActive(el){
+  document.querySelectorAll('.modal-thumb').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.combo-item').forEach(c=>c.classList.remove('active'));
+  if(el) el.classList.add('active');
+}
+
+const COMBO_PANS=[
+  {name:'Center Drain', img:BASE+'Center-Standard-Drain_SW_1.png'},
+  {name:'Trench Drain',  img:BASE+'Trench-Drain_Rejilla_SW_1.png'},
+  {name:'ADA Pan',       img:BASE+'ADA_SW_1.png'},
+  {name:'Custom Pan',    img:BASE+'Custom_SW_1-2.png'},
+];
+
 function openModal(id){
-  const p = allProducts[id]; if(!p) return;
-  document.getElementById('modal-img').src = p.img;
-  document.getElementById('modal-cat').textContent = 'Shower Walls';
-  document.getElementById('modal-title').textContent = p.name;
-  document.getElementById('modal-desc').textContent = p.desc + ' — Engineered from high-quality cultured marble, built for durability and easy installation in commercial and residential projects.';
-  document.getElementById('modal-specs').innerHTML = p.specs.map(s=>`<div class="modal-spec"><div class="modal-spec-label">${s.l}</div><div class="modal-spec-value">${s.v}</div></div>`).join('');
-  const gal = p.gallery||[];
-  document.getElementById('modal-gallery-label').textContent = gal.length ? 'Product Gallery' : '';
-  document.getElementById('modal-gallery').innerHTML = gal.map(g=>`<div class="modal-gallery-thumb"><img src="${g}" alt="" loading="lazy"/></div>`).join('');
+  const p=allProducts[id]; if(!p) return;
+  resetZoom();
+
+  document.getElementById('modal-img').src=p.img;
+  document.getElementById('modal-cat').textContent='Shower Walls';
+  document.getElementById('modal-title').textContent=p.name;
+  document.getElementById('modal-desc').textContent=p.desc+' — Engineered from high-quality cultured marble, built for durability and easy installation in commercial and residential projects.';
+  document.getElementById('modal-specs').innerHTML=p.specs.map(s=>`<div class="modal-spec"><div class="modal-spec-label">${s.l}</div><div class="modal-spec-value">${s.v}</div></div>`).join('');
+
+  // Thumbnail strip — deduplicated
+  const allImgs=[p.img,...(p.gallery||[])].filter((v,i,a)=>a.indexOf(v)===i);
+  const strip=document.getElementById('modal-thumbstrip');
+  strip.innerHTML=allImgs.map((src,i)=>`<div class="modal-thumb${i===0?' active':''}" data-src="${src}"><img src="${src}" alt="" loading="lazy"/></div>`).join('');
+  strip.querySelectorAll('.modal-thumb').forEach(thumb=>{
+    thumb.addEventListener('click',function(){
+      document.getElementById('modal-img').src=this.dataset.src;
+      resetZoom(); setThumbActive(this);
+    });
+  });
+
+  // Combo section — shown only for surrounds
+  const isSurround=surrounds.some(s=>s.id===id);
+  const comboEl=document.getElementById('modal-combo');
+  if(isSurround){
+    comboEl.style.display='';
+    document.getElementById('modal-combo-grid').innerHTML=COMBO_PANS.map(pan=>
+      `<div class="combo-item" data-src="${pan.img}"><img src="${pan.img}" alt="${pan.name}" loading="lazy"/><span>${pan.name}</span></div>`
+    ).join('');
+    document.querySelectorAll('.combo-item').forEach(item=>{
+      item.addEventListener('click',function(){
+        document.getElementById('modal-img').src=this.dataset.src;
+        resetZoom(); setThumbActive(null); this.classList.add('active');
+      });
+    });
+  } else {
+    comboEl.style.display='none';
+  }
+
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow=''; }
-function closeModalOutside(e){ if(e.target===document.getElementById('modal-overlay')) closeModal(); }
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  resetZoom();
+}
+function closeModalOutside(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
 </body>
 </html>
