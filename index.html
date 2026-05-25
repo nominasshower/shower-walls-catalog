@@ -926,7 +926,6 @@ let significantDrag=false;
     significantDrag=false;
     isDragging=true; dragSX=e.clientX; dragSY=e.clientY; dragOX=viewerX; dragOY=viewerY;
     if(viewerScale>1) v.classList.add('dragging');
-    e.preventDefault();
   });
   window.addEventListener('mousemove',e=>{
     if(!isDragging)return;
@@ -934,13 +933,16 @@ let significantDrag=false;
     if(Math.abs(dx)>5||Math.abs(dy)>5) significantDrag=true;
     if(viewerScale>1){viewerX=dragOX+dx; viewerY=dragOY+dy; applyTransform();}
   });
-  window.addEventListener('mouseup',()=>{
-    if(isDragging){isDragging=false;document.getElementById('modal-viewer').classList.remove('dragging');}
-  });
-  // Click (not drag) → open lightbox
-  v.addEventListener('click',e=>{
-    if(e.target.closest('.viewer-btn,.modal-close')) return;
-    if(!significantDrag) openLightbox(document.getElementById('modal-img').src);
+  window.addEventListener('mouseup',e=>{
+    if(!isDragging)return;
+    isDragging=false;
+    document.getElementById('modal-viewer').classList.remove('dragging');
+    if(!significantDrag && !e.target.closest('.viewer-btn,.modal-close')){
+      const r=v.getBoundingClientRect();
+      if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){
+        openLightbox(document.getElementById('modal-img').src);
+      }
+    }
     significantDrag=false;
   });
 })();
