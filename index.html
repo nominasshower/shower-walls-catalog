@@ -4,6 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Shower Walls — Engineered Stone Manufacturer</title>
+<meta name="description" content="One of the largest cultured marble manufacturers in North America. Tub &amp; shower surrounds, shower pans and accessories for hospitality, multifamily and student housing."/>
+<meta property="og:title" content="Shower Walls — Engineered Stone Manufacturer"/>
+<meta property="og:description" content="Tub &amp; shower surrounds, shower pans and accessories for hospitality, multifamily and student housing. Made in Monterrey, México."/>
+<meta property="og:image" content="https://shower-walls.net/wp-content/uploads/2021/03/Theory_SW_1.png"/>
+<meta property="og:type" content="website"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -31,6 +36,8 @@ nav{position:sticky;top:0;z-index:200;background:var(--white);border-bottom:1px 
 .nav-links{display:flex;gap:28px}
 .nav-links a{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#374151;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--navy)}
 .nav-cta{background:var(--orange);color:#fff;border:none;border-radius:50px;padding:10px 22px;
   font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:background .2s}
 .nav-cta:hover{background:#c9570f}
@@ -283,7 +290,11 @@ footer{background:var(--navy);padding:48px 80px 28px}
 }
 @media(max-width:768px){
   nav{padding:0 20px}
-  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;
+    flex-direction:column;gap:0;padding:8px 20px 16px;box-shadow:0 8px 16px rgba(0,0,0,.08);border-bottom:1px solid #e5e7eb}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid #f0f0f0}
   .hero{padding:40px 20px}
   .trust-bar,.about,.cat-overview,.products-section,.colors-section,.download-section,
   .contact-section,.sec-header,footer{padding-left:20px;padding-right:20px}
@@ -304,15 +315,16 @@ footer{background:var(--navy);padding:48px 80px 28px}
   <div class="nav-logo">
     <img src="https://shower-walls.net/wp-content/uploads/2021/07/shower-menu-1.png" alt="Shower Walls" style="height:44px;width:auto"/>
   </div>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#about">About Us</a>
-    <a href="#">Brands</a>
+    <a href="https://shower-walls.net" target="_blank">Brands</a>
     <a href="#products" class="active">Products</a>
     <a href="#colors">Colors</a>
     <a href="#download">Catalog</a>
     <a href="#contact">Contact</a>
   </div>
-  <button class="nav-cta" onclick="scrollTo('contact')">Get a Quote</button>
+  <button class="nav-burger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
 </nav>
 
 <!-- HERO -->
@@ -323,7 +335,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
     <p class="hero-desc">One of the largest cultured marble manufacturers in North America. We supply hotels, multifamily and student housing across the US and Canada.</p>
     <div class="hero-btns">
       <button class="btn-hero-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products ↓</button>
-      <button class="btn-hero-outline" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">Download Catalog</button>
+      <button class="btn-hero-outline" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">Request Catalog</button>
     </div>
     <div class="hero-stats">
       <div class="stat-box"><div class="stat-num">5,000+</div><div class="stat-label">Projects Delivered</div></div>
@@ -503,8 +515,8 @@ footer{background:var(--navy);padding:48px 80px 28px}
 <!-- DOWNLOAD -->
 <section class="download-section" id="download">
   <div>
-    <div class="download-tag">Download</div>
-    <h2>Get Our Full<br/>Product Catalog</h2>
+    <div class="download-tag">Full Catalog</div>
+    <h2>Request Our Full<br/>Product Catalog</h2>
     <ul class="download-list">
       <li>Full product specs &amp; dimensions</li>
       <li>All colors and finish options</li>
@@ -512,7 +524,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
       <li>ADA compliance details</li>
       <li>Custom order request forms</li>
     </ul>
-    <button class="btn-download" onclick="alert('Catalog PDF coming soon. Contact sales@shower-walls.net')">Download Catalog (PDF)</button>
+    <button class="btn-download" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request the Catalog</button>
   </div>
   <div class="download-img-wrap">
     <img src="https://shower-walls.net/wp-content/uploads/2021/03/Theory_SW_2.png" alt="Product Catalog"/>
@@ -598,9 +610,9 @@ footer{background:var(--navy);padding:48px 80px 28px}
       <h4>Company</h4>
       <ul>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#">Our Brands</a></li>
+        <li><a href="https://shower-walls.net" target="_blank">Our Brands</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#download">Download Catalog</a></li>
+        <li><a href="#download">Request Catalog</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -613,7 +625,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Shower Walls. All rights reserved. Monterrey, Nuevo León, México.</p>
+    <p>© 2026 Shower Walls. All rights reserved. Monterrey, Nuevo León, México.</p>
     <p>sales@shower-walls.net</p>
   </div>
 </footer>
@@ -681,82 +693,58 @@ const BASE = 'https://shower-walls.net/wp-content/uploads/2021/03/';
 const BASE24 = 'https://shower-walls.net/wp-content/uploads/2024/01/';
 
 const surrounds = [
-  {id:'theory', name:'Theory (TH)', desc:'Soft horizontal lines, modern & elegant.', tags:['Matte','Gloss'],
-   img: BASE+'Theory_SW_1.png',
-   gallery:[BASE+'Theory_SW_2.png',BASE+'Theory_SW_3.png',BASE+'Theory_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4 - 5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Horizontal Lines'}]},
-  {id:'ventana', name:'Ventana (VN)', desc:'Clean geometric tile pattern.', tags:['Matte','Semi-Gloss'],
-   img: BASE+'Ventana_SW_1-1.png',
-   gallery:[BASE+'Ventana_Closed-Up_1-1.png'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Geometric Tile'}]},
-  {id:'interval', name:'Interval (IA)', desc:'Staggered brick-style, timeless look.', tags:['Gloss','Matte'],
-   img: BASE+'Interval_Closed-Up_1.png',
-   gallery:[BASE+'Interval_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Brick Stagger'}]},
-  {id:'chevronff', name:'Chevron FFI (FF)', desc:'Bold chevron for a dramatic aesthetic.', tags:['Matte'],
-   img: BASE+'Chevron-FF1_SW_1.png',
-   gallery:[BASE+'Chevron-FF1_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Chevron'}]},
-  {id:'santorini', name:'Santorini', desc:'Mediterranean-inspired warm finish.', tags:['Semi-Gloss'],
-   img: BASE24+'1080x1080_shower.jpg',
-   gallery:[BASE24+'WhatsApp-Image-2024-01-05-at-10.49.26-AM-1.jpeg'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Style',v:'Mediterranean'}]},
-  {id:'vv', name:'Vertical Vision (VV)', desc:'Elongating vertical lines, airy feel.', tags:['Matte','Gloss'],
-   img: BASE+'Vertical-Vision_SW_1.png',
-   gallery:[BASE+'Vertical-Vision_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vertical Lines'}]},
-  {id:'mg', name:'12"×24" Contemporary (MG)', desc:'Large format clean tile.', tags:['Gloss','Matte'],
-   img: BASE+'12x24-Contemporary_Closed-Up_1.png',
-   gallery:[BASE+'12x24-Contemporary_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Tile Size',v:'12"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Large Format'}]},
-  {id:'he', name:'Herringbone (HE)', desc:'Classic woven — hotel level luxury.', tags:['Matte','Semi-Gloss'],
-   img: BASE+'Herringbone_SW_1.png',
-   gallery:[BASE+'Herringbone_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Herringbone'}]},
-  {id:'sa', name:'Stars (SA)', desc:'Unique star pattern, eye-catching.', tags:['Gloss'],
-   img: BASE+'Stars_SW_1.png',
-   gallery:[BASE+'Stars_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Star'}]},
-  {id:'du', name:'Dune (DU)', desc:'Organic sand dune texture.', tags:['Semi-Gloss'],
-   img: BASE+'Dune_SW_1.png',
-   gallery:[BASE+'Dune_SW_2.png',BASE+'Dune_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Organic Dune'}]},
-  {id:'fa', name:'Fan (FA)', desc:'Art deco inspired fan pattern.', tags:['Matte','Gloss'],
-   img: BASE+'Fan_SW_1.png',
-   gallery:[BASE+'Fan_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Art Deco Fan'}]},
-  {id:'sb', name:'3"×6" Subway (SB)', desc:'Classic subway tile, always in style.', tags:['Matte','Semi-Gloss'],
-   img: BASE+'3x6-Subway_Closed-Up_1.png',
-   gallery:[BASE+'3x6-Subway_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Tile Size',v:'3"×6"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Subway'}]},
-  {id:'tt', name:'4"×15" Confetti (TT)', desc:'Playful random pattern, modern vibe.', tags:['Matte'],
-   img: BASE+'4x15-Confetti_SW_1.png',
-   gallery:[BASE+'4x15-Confetti_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte'},{l:'Tile Size',v:'4"×15"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Confetti'}]},
   {id:'vi', name:'6"×24" Vision (VI)', desc:'Modern elongated look, sleek.', tags:['Gloss'],
    img: BASE+'6x24-Vision_1.png',
    gallery:[BASE+'6x24-Vision_Closed-Up_1.png'],
    specs:[{l:'Finish',v:'Gloss'},{l:'Tile Size',v:'6"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vision'}]},
-  {id:'ve', name:'10"×20" Vertical (VE)', desc:'Oversized format, bold statement.', tags:['Matte','Gloss'],
-   img: BASE+'10x20-Vertical_SW_1.png',
-   gallery:[BASE+'10x20-Vertical_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'10"×20"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vertical'}]},
-  {id:'te', name:'4"×8" (TE)', desc:'Compact versatile tile format.', tags:['Matte'],
-   img: BASE+'4x8_SW_3.png',
-   gallery:[BASE+'4x8_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Matte'},{l:'Tile Size',v:'4"×8"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Classic'}]},
-  {id:'ba', name:'2"×14" Bamboo (BA)', desc:'Linear bamboo-inspired texture.', tags:['Semi-Gloss'],
-   img: BASE+'2x14-Bamboo_SW_1.png',
-   gallery:[BASE+'2x14-Bamboo_Closed-Up_1.png'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Tile Size',v:'2"×14"'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Bamboo'}]},
+  {id:'sb', name:'3"×6" Subway (SB)', desc:'Classic subway tile, always in style.', tags:['Matte','Semi-Gloss'],
+   img: BASE+'3x6-Subway_Closed-Up_1.png',
+   gallery:[BASE+'3x6-Subway_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Tile Size',v:'3"×6"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Subway'}]},
+  {id:'mg', name:'12"×24" Contemporary (MG)', desc:'Large format clean tile.', tags:['Gloss','Matte'],
+   img: BASE+'12x24-Contemporary_Closed-Up_1.png',
+   gallery:[BASE+'12x24-Contemporary_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Tile Size',v:'12"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Large Format'}]},
+  {id:'chevronff', name:'Chevron FFI (FF)', desc:'Bold chevron for a dramatic aesthetic.', tags:['Matte'],
+   img: BASE+'Chevron-FF1_SW_1.png',
+   gallery:[BASE+'Chevron-FF1_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Chevron'}]},
   {id:'cg', name:'6"×24" Contemporary (CG)', desc:'Wide format, refined & contemporary.', tags:['Matte','Gloss'],
    img: BASE+'6x24-Contemporary_Closed-Up_1.png',
    gallery:[BASE+'6x24-Contemporary_Closed-Up_1.png'],
    specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'6"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Contemporary'}]},
+  {id:'he', name:'Herringbone (HE)', desc:'Classic woven — hotel level luxury.', tags:['Matte','Semi-Gloss'],
+   img: BASE+'Herringbone_SW_1.png',
+   gallery:[BASE+'Herringbone_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Herringbone'}]},
   {id:'ll', name:'6"×24" Linear Listello (LL)', desc:'Thin horizontal stripe accents.', tags:['Gloss'],
    img: BASE+'6x24-Linear-Listello_Closed-Up_1.png',
    gallery:[BASE+'6x24-Linear-Listello_Closed-Up_1.png'],
    specs:[{l:'Finish',v:'Gloss'},{l:'Tile Size',v:'6"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Linear Listello'}]},
+  {id:'vv', name:'Vertical Vision (VV)', desc:'Elongating vertical lines, airy feel.', tags:['Matte','Gloss'],
+   img: BASE+'Vertical-Vision_SW_1.png',
+   gallery:[BASE+'Vertical-Vision_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vertical Lines'}]},
+  {id:'interval', name:'Interval (IA)', desc:'Staggered brick-style, timeless look.', tags:['Gloss','Matte'],
+   img: BASE+'Interval_Closed-Up_1.png',
+   gallery:[BASE+'Interval_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Brick Stagger'}]},
+  {id:'tt', name:'4"×15" Confetti (TT)', desc:'Playful random pattern, modern vibe.', tags:['Matte'],
+   img: BASE+'4x15-Confetti_SW_1.png',
+   gallery:[BASE+'4x15-Confetti_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte'},{l:'Tile Size',v:'4"×15"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Confetti'}]},
+  {id:'ba', name:'2"×14" Bamboo (BA)', desc:'Linear bamboo-inspired texture.', tags:['Semi-Gloss'],
+   img: BASE+'2x14-Bamboo_SW_1.png',
+   gallery:[BASE+'2x14-Bamboo_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Tile Size',v:'2"×14"'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Bamboo'}]},
+  {id:'ve', name:'10"×20" Vertical (VE)', desc:'Oversized format, bold statement.', tags:['Matte','Gloss'],
+   img: BASE+'10x20-Vertical_SW_1.png',
+   gallery:[BASE+'10x20-Vertical_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'10"×20"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vertical'}]},
+  {id:'sa', name:'Stars (SA)', desc:'Unique star pattern, eye-catching.', tags:['Gloss'],
+   img: BASE+'Stars_SW_1.png',
+   gallery:[BASE+'Stars_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Star'}]},
   {id:'h4', name:'Chevron H4 (H4)', desc:'Symmetrical chevron, elegant flow.', tags:['Matte','Semi-Gloss'],
    img: BASE+'Chevron-H4_SW_1.png',
    gallery:[BASE+'Chevron-H4_Closed-Up_1.png'],
@@ -765,6 +753,30 @@ const surrounds = [
    img: BASE+'4x12-Tile_SW_1.png',
    gallery:[BASE+'4x12-Tile_Closed-up_1.png'],
    specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'4"×12"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Smooth Tile'}]},
+  {id:'theory', name:'Theory (TH)', desc:'Soft horizontal lines, modern & elegant.', tags:['Matte','Gloss'],
+   img: BASE+'Theory_SW_1.png',
+   gallery:[BASE+'Theory_SW_2.png',BASE+'Theory_SW_3.png',BASE+'Theory_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4 - 5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Horizontal Lines'}]},
+  {id:'te', name:'4"×8" (TE)', desc:'Compact versatile tile format.', tags:['Matte'],
+   img: BASE+'4x8_SW_3.png',
+   gallery:[BASE+'4x8_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte'},{l:'Tile Size',v:'4"×8"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Classic'}]},
+  {id:'fa', name:'Fan (FA)', desc:'Art deco inspired fan pattern.', tags:['Matte','Gloss'],
+   img: BASE+'Fan_SW_1.png',
+   gallery:[BASE+'Fan_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Art Deco Fan'}]},
+  {id:'santorini', name:'Santorini', desc:'Mediterranean-inspired warm finish.', tags:['Semi-Gloss'],
+   img: BASE24+'1080x1080_shower.jpg',
+   gallery:[BASE24+'WhatsApp-Image-2024-01-05-at-10.49.26-AM-1.jpeg'],
+   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Style',v:'Mediterranean'}]},
+  {id:'du', name:'Dune (DU)', desc:'Organic sand dune texture.', tags:['Semi-Gloss'],
+   img: BASE+'Dune_SW_3.png',
+   gallery:[BASE+'Dune_SW_4.png',BASE+'Dune_SW_5.png',BASE+'Dune_Closed-Up_1.png'],
+   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Organic Dune'}]},
+  {id:'ventana', name:'Ventana (VN)', desc:'Clean geometric tile pattern.', tags:['Matte','Semi-Gloss'],
+   img: BASE+'Ventana_SW_1-1.png',
+   gallery:[BASE+'Ventana_Closed-Up_1-1.png'],
+   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Geometric Tile'}]},
   {id:'sv', name:'6x4x24 Vision (SV)', desc:'Mixed-dimension vision pattern.', tags:['Semi-Gloss'],
    img: BASE+'6x4x24-Vision_SW_1.png',
    gallery:[BASE+'6x4x24-Vision_Closed-Up_1.png'],
@@ -1022,6 +1034,7 @@ document.addEventListener('keydown',e=>{
     else closeModal();
   }
 });
+document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open')));
 </script>
 </body>
 </html>
