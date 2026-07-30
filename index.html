@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto}
 body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
@@ -326,7 +326,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
     <a href="#contact">Contact</a>
   </div>
   <button class="nav-burger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'auto'})">Get a Quote</button>
 </nav>
 
 <!-- HERO -->
@@ -336,8 +336,8 @@ footer{background:var(--navy);padding:48px 80px 28px}
     <h1>Built for<br/><span>Hospitality.</span><br/>Made to Last.</h1>
     <p class="hero-desc">One of the largest cultured marble manufacturers in North America. We supply hotels, multifamily and student housing across the US and Canada.</p>
     <div class="hero-btns">
-      <button class="btn-hero-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products ↓</button>
-      <button class="btn-hero-outline" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">Request Catalog</button>
+      <button class="btn-hero-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'auto'})">Explore Products ↓</button>
+      <button class="btn-hero-outline" onclick="document.getElementById('download').scrollIntoView({behavior:'auto'})">Request Catalog</button>
     </div>
     <div class="hero-stats">
       <div class="stat-box"><div class="stat-num">5,000+</div><div class="stat-label">Projects Delivered</div></div>
@@ -408,7 +408,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
 
   <!-- Category overview -->
   <div class="cat-overview" style="background:var(--light)">
-    <div class="cat-card" onclick="document.getElementById('sec-surrounds').scrollIntoView({behavior:'smooth'})">
+    <div class="cat-card" onclick="document.getElementById('sec-surrounds').scrollIntoView({behavior:'auto'})">
       <img src="https://shower-walls.net/wp-content/uploads/2021/03/Herringbone_Closed-Up_1.png" alt="Surrounds"/>
       <div class="cat-card-overlay"></div>
       <div class="cat-card-body">
@@ -418,7 +418,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <span class="cat-explore">Explore →</span>
       </div>
     </div>
-    <div class="cat-card" onclick="document.getElementById('sec-pans').scrollIntoView({behavior:'smooth'})">
+    <div class="cat-card" onclick="document.getElementById('sec-pans').scrollIntoView({behavior:'auto'})">
       <img src="https://shower-walls.net/wp-content/uploads/2021/03/Center-Standard-Drain_SW_1.png" alt="Pans"/>
       <div class="cat-card-overlay"></div>
       <div class="cat-card-body">
@@ -428,7 +428,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <span class="cat-explore">Explore →</span>
       </div>
     </div>
-    <div class="cat-card" onclick="document.getElementById('sec-accessories').scrollIntoView({behavior:'smooth'})">
+    <div class="cat-card" onclick="document.getElementById('sec-accessories').scrollIntoView({behavior:'auto'})">
       <img src="https://shower-walls.net/wp-content/uploads/2021/03/Niche_SW_1.png" alt="Accessories"/>
       <div class="cat-card-overlay"></div>
       <div class="cat-card-body">
@@ -467,7 +467,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
   <div class="sec-divider"></div>
   <h2>Available Colors</h2>
   <p class="colors-subtitle">Choose from our standard palette or request a custom color match for your project.</p>
-  <button class="nav-cta" style="margin-bottom:8px" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Sample</button>
+  <button class="nav-cta" style="margin-bottom:8px" onclick="document.getElementById('contact').scrollIntoView({behavior:'auto'})">Request a Sample</button>
 
   <div class="colors-group-label">1. Regular Colors</div>
   <div class="colors-grid">
@@ -526,7 +526,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
       <li>ADA compliance details</li>
       <li>Custom order request forms</li>
     </ul>
-    <button class="btn-download" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request the Catalog</button>
+    <button class="btn-download" onclick="document.getElementById('contact').scrollIntoView({behavior:'auto'})">Request the Catalog</button>
   </div>
   <div class="download-img-wrap">
     <img src="https://shower-walls.net/wp-content/uploads/2021/03/Theory_SW_2.png" alt="Product Catalog"/>
@@ -698,7 +698,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
       <p class="modal-desc" id="modal-desc"></p>
       <div class="modal-specs-grid" id="modal-specs"></div>
       <div class="modal-actions">
-        <button class="btn-modal-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});closeModal()">Request a Quote</button>
+        <button class="btn-modal-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'auto'});closeModal()">Request a Quote</button>
         <button class="btn-modal-secondary" onclick="closeModal()">Back to Catalog</button>
       </div>
     </div>
