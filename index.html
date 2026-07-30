@@ -568,29 +568,62 @@ footer{background:var(--navy);padding:48px 80px 28px}
     </div>
   </div>
   <div class="quote-form">
-    <div class="form-title">Request a Quote</div>
-    <div class="form-subtitle">Fill out the form and we'll get back to you within 24 hours.</div>
-    <div class="form-row">
-      <div class="form-group"><label>First Name</label><input type="text" placeholder="John"/></div>
-      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"/></div>
+    <form id="sw-form" action="https://formspree.io/f/mzdnqben" method="POST">
+      <div class="form-title">Request a Quote</div>
+      <div class="form-subtitle">Fill out the form and we'll get back to you within 24 hours.</div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input required type="text" name="first_name" placeholder="John"/></div>
+        <div class="form-group"><label>Last Name</label><input required type="text" name="last_name" placeholder="Smith"/></div>
+      </div>
+      <div class="form-group"><label>Email</label><input required type="email" name="email" placeholder="john@company.com"/></div>
+      <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"/></div>
+      <div class="form-group">
+        <label>Project Type</label>
+        <select name="project_type">
+          <option>Hospitality</option>
+          <option>Multifamily</option>
+          <option>Student Housing</option>
+          <option>Residential</option>
+          <option>Healthcare / ADA</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us about your project..."></textarea></div>
+      <button type="submit" id="sw-form-btn" class="btn-submit">Send Request →</button>
+    </form>
+    <div id="sw-form-success" style="display:none;text-align:center;padding:30px 10px;">
+      <div style="font-size:1.5rem;color:var(--accent,#1E4D8C);font-weight:600;">Thank you!</div>
+      <p style="margin-top:12px;">We have received your request. An advisor will contact you within 24 hours.</p>
     </div>
-    <div class="form-group"><label>Email</label><input type="email" placeholder="john@company.com"/></div>
-    <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (555) 000-0000"/></div>
-    <div class="form-group">
-      <label>Project Type</label>
-      <select>
-        <option>Hospitality</option>
-        <option>Multifamily</option>
-        <option>Student Housing</option>
-        <option>Residential</option>
-        <option>Healthcare / ADA</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your project..."></textarea></div>
-    <button class="btn-submit" onclick="alert('Thank you! We will contact you within 24 hours.\n\nEmail: sales@shower-walls.net')">Send Request →</button>
   </div>
 </section>
+<script>
+(function(){
+  var form = document.getElementById('sw-form');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var btn = document.getElementById('sw-form-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try{
+      var data = new FormData(form);
+      var res = await fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}});
+      if(res.ok){
+        form.style.display = 'none';
+        document.getElementById('sw-form-success').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Request →';
+        alert('Something went wrong. Please try again, or email us at sales1@shower-walls.net.');
+      }
+    } catch(err){
+      btn.disabled = false;
+      btn.textContent = 'Send Request →';
+      alert('Something went wrong. Please try again, or email us at sales1@shower-walls.net.');
+    }
+  });
+})();
+</script>
 
 <!-- FOOTER -->
 <footer>
