@@ -18,305 +18,7 @@
 <meta property="og:image" content="https://shower-walls.net/images/Theory_SW_1.jpg"/>
 <meta property="og:type" content="website"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto}
-body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-:root{
-  --navy:#0d2246;
-  --blue:#1a3c74;
-  --orange:#e86b1a;
-  --light:#f0f4f8;
-  --gray:#6b7280;
-  --white:#fff;
-  --shadow:0 2px 16px rgba(0,0,0,.08);
-}
-
-/* ── NAV ── */
-nav{position:sticky;top:0;z-index:200;background:var(--white);border-bottom:1px solid #e5e7eb;
-  display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;
-  box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo img{height:40px}
-.nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;color:var(--navy);letter-spacing:-.3px}
-.nav-links{display:flex;gap:28px}
-.nav-links a{font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#374151;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--navy)}
-.nav-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
-.nav-burger span{display:block;width:22px;height:2px;background:var(--navy)}
-.nav-cta{background:var(--orange);color:#fff;border:none;border-radius:50px;padding:10px 22px;
-  font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:background .2s}
-.nav-cta:hover{background:#c9570f}
-
-/* ── HERO ── */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
-  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
-  padding:72px 80px 64px;min-height:540px}
-.hero-tag{display:inline-block;border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);
-  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;
-  padding:6px 14px;border-radius:50px;margin-bottom:24px}
-.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:900;
-  line-height:1.1;color:#fff;margin-bottom:20px}
-.hero h1 span{color:var(--orange)}
-.hero-desc{font-size:1rem;color:rgba(255,255,255,.75);line-height:1.75;max-width:460px;margin-bottom:36px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-hero-primary{background:var(--orange);color:#fff;border:none;border-radius:50px;
-  padding:14px 28px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
-  cursor:pointer;transition:background .2s}
-.btn-hero-primary:hover{background:#c9570f}
-.btn-hero-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);border-radius:50px;
-  padding:12px 26px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
-  cursor:pointer;transition:all .2s}
-.btn-hero-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.hero-stats{display:flex;gap:20px;margin-top:40px;flex-wrap:wrap}
-.stat-box{background:rgba(255,255,255,.1);border-radius:12px;padding:16px 20px;min-width:100px}
-.stat-num{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;color:var(--orange)}
-.stat-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.65);margin-top:2px}
-.hero-images{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:460px}
-.hero-img{border-radius:12px;overflow:hidden;background:#1a3c74}
-.hero-img img{width:100%;height:100%;object-fit:cover}
-.hero-img:first-child{grid-column:1;grid-row:1 / 3}
-.hero-img:nth-child(2){grid-column:2;grid-row:1}
-.hero-img:nth-child(3){grid-column:2;grid-row:2}
-
-/* ── TRUST BAR ── */
-.trust-bar{background:var(--navy);padding:14px 80px;display:flex;gap:40px;align-items:center;
-  justify-content:space-between;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:.8rem;
-  font-weight:600;text-transform:uppercase;letter-spacing:.5px}
-.trust-item svg{opacity:.6}
-
-/* ── ABOUT ── */
-.about{padding:80px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;background:#fff}
-.about-tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:12px}
-.about h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:16px}
-.about p{color:var(--gray);line-height:1.8;margin-bottom:28px;font-size:.95rem}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.about-stat{background:var(--light);border-radius:12px;padding:20px 24px;border-left:3px solid var(--orange)}
-.about-stat-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy)}
-.about-stat-label{font-size:.78rem;color:var(--gray);margin-top:2px}
-.about-images{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 180px;gap:10px}
-.about-img{border-radius:12px;overflow:hidden}
-.about-img img{width:100%;height:100%;object-fit:cover}
-.about-img.tall{grid-row:span 2}
-
-/* ── SECTION HEADER ── */
-.sec-header{padding:64px 80px 32px}
-.sec-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:8px}
-.sec-divider{width:40px;height:3px;background:var(--orange);border-radius:2px;margin:10px 0}
-.sec-header h2{font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;color:var(--navy)}
-.sec-header p{color:var(--gray);margin-top:6px;font-size:.95rem}
-
-/* ── CATEGORY OVERVIEW CARDS ── */
-.cat-overview{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 80px 56px}
-.cat-card{border-radius:16px;overflow:hidden;position:relative;height:200px;cursor:pointer;transition:transform .25s}
-.cat-card:hover{transform:translateY(-4px)}
-.cat-card img{width:100%;height:100%;object-fit:cover}
-.cat-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,34,70,.85) 40%,rgba(13,34,70,.2) 100%)}
-.cat-card-body{position:absolute;bottom:0;left:0;right:0;padding:20px 22px}
-.cat-card-count{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  color:rgba(255,255,255,.7);margin-bottom:4px}
-.cat-card-title{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:4px}
-.cat-card-desc{font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.4}
-.cat-explore{margin-top:10px;display:inline-block;background:var(--orange);color:#fff;
-  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
-  padding:6px 14px;border-radius:50px}
-
-/* ── PRODUCTS SECTION ── */
-.products-section{background:var(--light);padding:0 80px 64px}
-.prod-section-label{font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:800;
-  text-transform:uppercase;letter-spacing:2px;color:var(--navy);padding:40px 0 20px;
-  display:flex;align-items:center;gap:12px}
-.prod-section-label::after{content:'';flex:1;height:1px;background:#d1d5db}
-
-.products-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.products-grid.pans-grid{grid-template-columns:repeat(4,1fr)}
-.products-grid.acc-grid{grid-template-columns:repeat(5,1fr)}
-
-/* ── PRODUCT CARD ── */
-.prod-card{background:#fff;border-radius:14px;overflow:hidden;cursor:pointer;
-  transition:transform .2s,box-shadow .2s;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.prod-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
-.prod-card-img{height:150px;overflow:hidden;background:#eef0f3;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
-.prod-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;filter:brightness(0.8) contrast(2) saturate(1.05)}
-.prod-card-img img[src^="images/"]{filter:none}
-.prod-card:hover .prod-card-img img{transform:scale(1.06)}
-.prod-card-body{padding:12px 14px 14px}
-.prod-card-name{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:4px;line-height:1.3}
-.prod-card-desc{font-size:.72rem;color:var(--gray);line-height:1.45;margin-bottom:8px}
-.prod-card-tags{display:flex;flex-wrap:wrap;gap:4px}
-.prod-tag{background:#e8f0fe;color:#1a3c74;border-radius:20px;font-size:.65rem;font-weight:600;padding:3px 8px}
-.prod-tag.ada{background:#fef3c7;color:#92400e}
-.prod-tag.custom{background:#fce7f3;color:#9d174d}
-
-/* ── COLORS SECTION ── */
-.colors-section{padding:64px 80px;background:#fff}
-.colors-section h2{font-family:'Montserrat',sans-serif;font-size:1.9rem;font-weight:800;color:var(--navy);margin-bottom:6px}
-.colors-section .sec-tag{margin-bottom:8px}
-.colors-subtitle{color:var(--gray);font-size:.9rem;margin-bottom:36px}
-.colors-group-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
-  color:var(--navy);margin-bottom:16px;margin-top:32px}
-.colors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:16px}
-.color-swatch{cursor:pointer;transition:transform .2s}
-.color-swatch:hover{transform:translateY(-3px)}
-.color-swatch-img{border-radius:10px;overflow:hidden;height:90px;border:1px solid #e5e7eb}
-.color-swatch-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.8) contrast(1.9)}
-.color-swatch-name{font-size:.75rem;font-weight:600;color:var(--navy);margin-top:6px;text-align:center}
-.color-request-btn{margin-top:28px}
-
-/* ── DOWNLOAD ── */
-.download-section{background:var(--navy);padding:64px 80px;display:grid;
-  grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.download-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:12px}
-.download-section h2{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#fff;margin-bottom:20px}
-.download-list{list-style:none;margin-bottom:32px}
-.download-list li{color:rgba(255,255,255,.8);font-size:.9rem;padding:6px 0;display:flex;align-items:center;gap:10px}
-.download-list li::before{content:'✓';color:var(--orange);font-weight:700;font-size:1rem}
-.btn-download{background:var(--orange);color:#fff;border:none;border-radius:50px;
-  padding:14px 32px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
-  cursor:pointer;transition:background .2s}
-.btn-download:hover{background:#c9570f}
-.download-img-wrap{border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.3)}
-.download-img-wrap img{width:100%;object-fit:cover}
-
-/* ── CONTACT ── */
-.contact-section{padding:72px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;background:var(--light)}
-.contact-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--orange);margin-bottom:12px}
-.contact-section h2{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:14px}
-.contact-section .contact-desc{color:var(--gray);font-size:.9rem;line-height:1.7;margin-bottom:32px}
-.contact-info-item{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.contact-icon{width:40px;height:40px;background:var(--orange);border-radius:10px;display:flex;
-  align-items:center;justify-content:center;flex-shrink:0}
-.contact-info-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray);font-weight:600}
-.contact-info-value{font-size:.9rem;font-weight:600;color:var(--navy)}
-
-.quote-form{background:#fff;border-radius:20px;padding:36px;box-shadow:var(--shadow)}
-.form-title{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:4px}
-.form-subtitle{font-size:.82rem;color:var(--gray);margin-bottom:24px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
-.form-group label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--navy)}
-.form-group input,.form-group select,.form-group textarea{
-  border:1.5px solid #e5e7eb;border-radius:8px;padding:10px 14px;font-size:.875rem;
-  font-family:'Inter',sans-serif;color:var(--navy);transition:border-color .2s;outline:none;background:#fff}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange)}
-.form-group textarea{resize:vertical;min-height:90px}
-.btn-submit{width:100%;background:var(--orange);color:#fff;border:none;border-radius:50px;
-  padding:14px;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
-  cursor:pointer;transition:background .2s;margin-top:4px}
-.btn-submit:hover{background:#c9570f}
-
-/* ── FOOTER ── */
-footer{background:var(--navy);padding:48px 80px 28px}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
-.footer-brand .nav-logo-text{color:#fff;font-size:1.1rem;margin-bottom:12px;display:block}
-.footer-brand p{color:rgba(255,255,255,.55);font-size:.83rem;line-height:1.7}
-.footer-col h4{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.5);margin-bottom:16px}
-.footer-col ul{list-style:none}
-.footer-col ul li{margin-bottom:8px}
-.footer-col ul li a{color:rgba(255,255,255,.7);font-size:.83rem;transition:color .2s}
-.footer-col ul li a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
-  display:flex;justify-content:space-between;align-items:center}
-.footer-bottom p{color:rgba(255,255,255,.4);font-size:.78rem}
-
-/* ── MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:300;
-  background:rgba(0,0,0,.65);backdrop-filter:blur(6px);
-  align-items:center;justify-content:center;padding:20px}
-.modal-overlay.open{display:flex}
-.modal{background:#fff;border-radius:20px;max-width:900px;width:100%;
-  max-height:92vh;overflow-y:auto;animation:slideUp .3s ease;display:flex;flex-direction:column}
-@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
-/* Image viewer */
-.modal-viewer{position:relative;height:560px;flex-shrink:0;background:#0d2246;border-radius:20px 20px 0 0;overflow:hidden;cursor:grab}
-.modal-viewer.dragging{cursor:grabbing}
-.modal-viewer-img-wrap{width:100%;height:100%;overflow:hidden;position:relative}
-.modal-viewer-img{width:100%;height:100%;object-fit:contain;transform-origin:center;
-  transition:transform .1s ease;user-select:none;pointer-events:none}
-.viewer-controls{position:absolute;bottom:12px;right:12px;display:flex;gap:6px;z-index:10}
-.viewer-btn{background:rgba(255,255,255,.15);backdrop-filter:blur(4px);color:#fff;border:none;
-  border-radius:8px;width:34px;height:34px;font-size:1rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;transition:background .2s}
-.viewer-btn:hover{background:rgba(255,255,255,.3)}
-.viewer-zoom-hint{position:absolute;bottom:12px;left:12px;color:rgba(255,255,255,.55);
-  font-size:.7rem;letter-spacing:.5px}
-
-/* Thumbnail strip */
-.modal-thumbstrip{display:flex;flex-wrap:wrap;gap:10px;padding:16px 20px;background:#f8f9fb;
-  border-bottom:1px solid #e5e7eb}
-.modal-thumb{width:100px;height:100px;flex-shrink:0;border-radius:10px;overflow:hidden;
-  cursor:pointer;border:2px solid transparent;transition:border-color .2s,box-shadow .2s}
-.modal-thumb:hover{box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.modal-thumb.active{border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,107,26,.2)}
-.modal-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(0.8) contrast(1.9)}
-.modal-thumb img[src^="images/"]{filter:none}
-
-/* Combo section */
-.modal-combo{padding:16px 24px;background:#f0f4f8;border-bottom:1px solid #e5e7eb}
-.modal-combo-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
-  color:var(--orange);margin-bottom:10px}
-.modal-combo-grid{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
-.combo-item{flex-shrink:0;cursor:pointer;text-align:center;transition:transform .2s}
-.combo-item:hover{transform:translateY(-2px)}
-.combo-item img{width:80px;height:80px;object-fit:cover;border-radius:8px;border:2px solid transparent;transition:border-color .2s}
-.combo-item.active img{border-color:var(--orange)}
-.combo-item span{display:block;font-size:.65rem;color:var(--gray);margin-top:4px;font-weight:600}
-
-.modal-body{padding:24px 28px}
-.modal-desc{font-size:.88rem;color:var(--gray);line-height:1.8;margin-bottom:20px}
-.modal-specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-.modal-spec{background:var(--light);border-radius:10px;padding:12px 14px}
-.modal-spec-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray);font-weight:700;margin-bottom:2px}
-.modal-spec-value{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;color:var(--navy)}
-.modal-header-text{padding:0 20px 14px;background:#0d2246}
-.modal-header-text .mcat{font-size:.68rem;text-transform:uppercase;letter-spacing:2px;color:var(--orange);font-weight:700;padding-top:12px;display:block}
-.modal-header-text h2{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:800;color:#fff}
-.modal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;z-index:20;
-  background:rgba(255,255,255,.9);border:none;border-radius:50%;cursor:pointer;
-  font-size:.95rem;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:center}
-.modal-close:hover{background:#fff}
-.modal-actions{display:flex;gap:10px;margin-top:4px}
-.btn-modal-primary{flex:1;background:var(--orange);color:#fff;border:none;border-radius:50px;
-  padding:13px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;text-align:center}
-.btn-modal-primary:hover{background:#c9570f}
-.btn-modal-secondary{flex:1;background:transparent;color:var(--navy);border:2px solid var(--navy);border-radius:50px;
-  padding:11px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;text-align:center}
-.btn-modal-secondary:hover{background:var(--navy);color:#fff}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr;padding:48px 40px}
-  .hero-images{display:none}
-  .trust-bar,.about,.cat-overview,.products-section,.colors-section,.download-section,.contact-section,
-  .sec-header,footer{padding-left:32px;padding-right:32px}
-  .download-section,.contact-section{grid-template-columns:1fr}
-  .products-grid{grid-template-columns:repeat(3,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-burger{display:flex}
-  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;
-    flex-direction:column;gap:0;padding:8px 20px 16px;box-shadow:0 8px 16px rgba(0,0,0,.08);border-bottom:1px solid #e5e7eb}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:12px 0;border-bottom:1px solid #f0f0f0}
-  .hero{padding:40px 20px}
-  .trust-bar,.about,.cat-overview,.products-section,.colors-section,.download-section,
-  .contact-section,.sec-header,footer{padding-left:20px;padding-right:20px}
-  .cat-overview{grid-template-columns:1fr}
-  .products-grid,.products-grid.pans-grid,.products-grid.acc-grid{grid-template-columns:repeat(2,1fr)}
-  .about{grid-template-columns:1fr}
-  .about-images{display:none}
-  .footer-top{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .modal-specs-grid{grid-template-columns:1fr 1fr}
-}
-</style>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
@@ -328,8 +30,18 @@ footer{background:var(--navy);padding:48px 80px 28px}
   <div class="nav-links" id="nav-links">
     <a href="#about">About Us</a>
     <a href="https://shower-walls.net" target="_blank">Brands</a>
-    <a href="#products" class="active">Products</a>
-    <a href="#colors">Colors</a>
+    <div class="nav-dropdown" id="products-dropdown">
+      <button type="button" class="nav-dropdown-toggle active" onclick="document.getElementById('products-dropdown').classList.toggle('open')">Products ▾</button>
+      <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu-inner">
+        <a href="surrounds.html">Tub &amp; Shower Surrounds</a>
+        <a href="pans.html">Shower Pans</a>
+        <a href="accessories.html">Accessories</a>
+        <a href="tub.html">Free Standing Tub</a>
+        </div>
+      </div>
+    </div>
+    <a href="colors.html">Colors</a>
     <a href="#download">Catalog</a>
     <a href="#contact">Contact</a>
   </div>
@@ -416,7 +128,7 @@ footer{background:var(--navy);padding:48px 80px 28px}
 
   <!-- Category overview -->
   <div class="cat-overview" style="background:var(--light)">
-    <div class="cat-card" onclick="document.getElementById('sec-surrounds').scrollIntoView({behavior:'auto'})">
+    <a class="cat-card" href="surrounds.html">
       <img src="images/lifestyle-textured-shower-towel.jpg" alt="Surrounds"/>
       <div class="cat-card-overlay"></div>
       <div class="cat-card-body">
@@ -425,8 +137,8 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <div class="cat-card-desc">Matte, Gloss &amp; Semi-Gloss. Multiple patterns.</div>
         <span class="cat-explore">Explore →</span>
       </div>
-    </div>
-    <div class="cat-card" onclick="document.getElementById('sec-pans').scrollIntoView({behavior:'auto'})">
+    </a>
+    <a class="cat-card" href="pans.html">
       <img src="images/lifestyle-pan-drain-detail.jpg" alt="Pans"/>
       <div class="cat-card-overlay"></div>
       <div class="cat-card-body">
@@ -435,8 +147,8 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <div class="cat-card-desc">Standard, Trench, ADA, Roll-In and Custom sizes.</div>
         <span class="cat-explore">Explore →</span>
       </div>
-    </div>
-    <div class="cat-card" onclick="document.getElementById('sec-accessories').scrollIntoView({behavior:'auto'})">
+    </a>
+    <a class="cat-card" href="accessories.html">
       <img src="images/Niche_SW_1.png" alt="Accessories"/>
       <div class="cat-card-overlay"></div>
       <div class="cat-card-body">
@@ -445,80 +157,17 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <div class="cat-card-desc">Niches, soap dishes, footrests, trim strips &amp; more.</div>
         <span class="cat-explore">Explore →</span>
       </div>
-    </div>
-  </div>
-
-  <div class="products-section">
-
-    <!-- TUB & SHOWER SURROUNDS -->
-    <div class="prod-section-label" id="sec-surrounds">Tub &amp; Shower Surrounds</div>
-    <div class="products-grid" id="grid-surrounds"></div>
-
-    <!-- SHOWER PANS -->
-    <div class="prod-section-label" id="sec-pans" style="margin-top:40px">Shower Pans</div>
-    <div class="products-grid pans-grid" id="grid-pans"></div>
-
-    <!-- ACCESSORIES -->
-    <div class="prod-section-label" id="sec-accessories" style="margin-top:40px">Accessories</div>
-    <div class="products-grid acc-grid" id="grid-accessories"></div>
-
-    <!-- FREE STANDING TUB -->
-    <div class="prod-section-label" id="sec-tub" style="margin-top:40px">Free Standing Tub</div>
-    <div class="products-grid" id="grid-tub" style="grid-template-columns:repeat(3,1fr)"></div>
-
-  </div>
-</section>
-
-<!-- COLORS -->
-<section class="colors-section" id="colors">
-  <div class="sec-tag">Color Options</div>
-  <div class="sec-divider"></div>
-  <h2>Available Colors</h2>
-  <p class="colors-subtitle">Choose from our standard palette or request a custom color match for your project.</p>
-  <button class="nav-cta" style="margin-bottom:8px" onclick="document.getElementById('contact').scrollIntoView({behavior:'auto'})">Request a Sample</button>
-
-  <div class="colors-group-label">1. Regular Colors</div>
-  <div class="colors-grid">
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Firefox-Beige_Textura_1-1.png" alt="Firefox Beige"/></div>
-      <div class="color-swatch-name">Firefox Beige</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Ivory_Textura_1.png" alt="Ivory"/></div>
-      <div class="color-swatch-name">Ivory</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Light-Gray_Textura_1-1.png" alt="Light Gray"/></div>
-      <div class="color-swatch-name">Light Gray</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Solid-Bone_Textura_1.png" alt="Solid Bone"/></div>
-      <div class="color-swatch-name">Solid Bone</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Solid-White_Textura_1.png" alt="Solid White"/></div>
-      <div class="color-swatch-name">Solid White</div>
-    </div>
-  </div>
-
-  <div class="colors-group-label">2. Sprayed Granite Colors</div>
-  <div class="colors-grid">
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Italian_iced.png" alt="Italian Iced"/></div>
-      <div class="color-swatch-name">Italian Iced</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Capuccino.jpg" alt="Cappuccino"/></div>
-      <div class="color-swatch-name">Cappuccino</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Crystal-Almond_Textura_1.png" alt="Crystal Almond"/></div>
-      <div class="color-swatch-name">Crystal Almond</div>
-    </div>
-    <div class="color-swatch">
-      <div class="color-swatch-img"><img src="images/Linen_Textura_1.png" alt="Linen"/></div>
-      <div class="color-swatch-name">Linen</div>
-    </div>
+    </a>
+    <a class="cat-card" href="tub.html">
+      <img src="images/Tina_SW_1.png" alt="Free Standing Tub"/>
+      <div class="cat-card-overlay"></div>
+      <div class="cat-card-body">
+        <div class="cat-card-count">Custom</div>
+        <div class="cat-card-title">Free Standing Tub</div>
+        <div class="cat-card-desc">Freestanding tub for premium suites.</div>
+        <span class="cat-explore">Explore →</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -643,10 +292,10 @@ footer{background:var(--navy);padding:48px 80px 28px}
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="#sec-surrounds">Tub &amp; Shower Surrounds</a></li>
-        <li><a href="#sec-pans">Shower Pans</a></li>
-        <li><a href="#sec-accessories">Accessories</a></li>
-        <li><a href="#sec-tub">Free Standing Tub</a></li>
+        <li><a href="surrounds.html">Tub &amp; Shower Surrounds</a></li>
+        <li><a href="pans.html">Shower Pans</a></li>
+        <li><a href="accessories.html">Accessories</a></li>
+        <li><a href="tub.html">Free Standing Tub</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -658,14 +307,6 @@ footer{background:var(--navy);padding:48px 80px 28px}
         <li><a href="#download">Request Catalog</a></li>
       </ul>
     </div>
-    <div class="footer-col">
-      <h4>Colors</h4>
-      <ul>
-        <li><a href="#colors">Regular Colors</a></li>
-        <li><a href="#colors">Sprayed Granite</a></li>
-        <li><a href="#contact">Request Sample</a></li>
-      </ul>
-    </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Shower Walls. All rights reserved. Monterrey, Nuevo León, México.</p>
@@ -673,454 +314,5 @@ footer{background:var(--navy);padding:48px 80px 28px}
   </div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <!-- Image viewer with zoom/pan -->
-    <div class="modal-viewer" id="modal-viewer">
-      <div class="modal-viewer-img-wrap" id="viewer-wrap">
-        <img id="modal-img" src="" alt="" class="modal-viewer-img" draggable="false"/>
-      </div>
-      <div class="viewer-controls">
-        <button class="viewer-btn" onclick="zoomIn()" title="Zoom in">＋</button>
-        <button class="viewer-btn" onclick="zoomOut()" title="Zoom out">－</button>
-        <button class="viewer-btn" onclick="resetZoom()" title="Reset">⤢</button>
-      </div>
-      <div class="viewer-zoom-hint">Click to enlarge · Scroll to zoom · Drag to move</div>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <!-- Title -->
-    <div class="modal-header-text">
-      <span class="mcat" id="modal-cat"></span>
-      <h2 id="modal-title"></h2>
-    </div>
-    <!-- Thumbnail strip -->
-    <div class="modal-thumbstrip" id="modal-thumbstrip"></div>
-    <!-- Combo section (pans that pair with this surround) -->
-    <div class="modal-combo" id="modal-combo" style="display:none">
-      <div class="modal-combo-label">Combine with a Shower Pan</div>
-      <div class="modal-combo-grid" id="modal-combo-grid"></div>
-    </div>
-    <!-- Body -->
-    <div class="modal-body">
-      <p class="modal-desc" id="modal-desc"></p>
-      <div class="modal-specs-grid" id="modal-specs"></div>
-      <div class="modal-actions">
-        <button class="btn-modal-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'auto'});closeModal()">Request a Quote</button>
-        <button class="btn-modal-secondary" onclick="closeModal()">Back to Catalog</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LIGHTBOX (full-screen image) -->
-<div id="lightbox" onclick="if(event.target===this)closeLightbox()"
-  style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.93);
-         align-items:center;justify-content:center;padding:20px;overflow:hidden">
-  <img id="lightbox-img" src="" alt=""
-    style="max-width:92vw;max-height:92vh;object-fit:contain;border-radius:10px;
-           box-shadow:0 24px 80px rgba(0,0,0,.6);cursor:grab;touch-action:none;user-select:none"/>
-  <button onclick="closeLightbox()"
-    style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,.15);
-           backdrop-filter:blur(6px);border:none;color:#fff;font-size:1.4rem;line-height:1;
-           width:44px;height:44px;border-radius:50%;cursor:pointer;
-           display:flex;align-items:center;justify-content:center">✕</button>
-  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
-              color:rgba(255,255,255,.45);font-size:.75rem;letter-spacing:.5px">
-    Scroll or drag to zoom &amp; pan · Click outside or press Esc to close
-  </div>
-</div>
-
-<script>
-const BASE = 'images/';
-
-const surrounds = [
-  {id:'vi', name:'6"×24" Vision (VI)', desc:'Modern elongated look, sleek.', tags:['Gloss'],
-   img: 'images/6x24-Vision_1.jpg',
-   gallery:['images/6x24-Vision_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Gloss'},{l:'Tile Size',v:'6"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vision'}]},
-  {id:'sb', name:'3"×6" Subway (SB)', desc:'Classic subway tile, always in style.', tags:['Matte','Semi-Gloss'],
-   img: 'images/3x6-Subway_Closed-Up_1.jpg',
-   gallery:['images/3x6-Subway_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Tile Size',v:'3"×6"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Subway'}]},
-  {id:'mg', name:'12"×24" Contemporary (MG)', desc:'Large format clean tile.', tags:['Gloss','Matte'],
-   img: 'images/12x24-Contemporary_Closed-Up_1.jpg',
-   gallery:['images/12x24-Contemporary_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Tile Size',v:'12"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Large Format'}]},
-  {id:'chevronff', name:'Chevron FFI (FF)', desc:'Bold chevron for a dramatic aesthetic.', tags:['Matte'],
-   img: 'images/Chevron-FF1_Closed-Up_1.jpg',
-   gallery:['images/Chevron-FF1_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Chevron'}]},
-  {id:'cg', name:'6"×24" Contemporary (CG)', desc:'Wide format, refined & contemporary.', tags:['Matte','Gloss'],
-   img: 'images/6x24-Contemporary_Closed-Up_1.jpg',
-   gallery:['images/6x24-Contemporary_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'6"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Contemporary'}]},
-  {id:'he', name:'Herringbone (HE)', desc:'Classic woven — hotel level luxury.', tags:['Matte','Semi-Gloss'],
-   img: 'images/Herringbone_Closed-Up_1.jpg',
-   gallery:['images/Herringbone_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Herringbone'}]},
-  {id:'ll', name:'6"×24" Linear Listello (LL)', desc:'Thin horizontal stripe accents.', tags:['Gloss'],
-   img: 'images/6x24-Linear-Listello_Closed-Up_1.jpg',
-   gallery:['images/6x24-Linear-Listello_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Gloss'},{l:'Tile Size',v:'6"×24"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Linear Listello'}]},
-  {id:'vv', name:'Vertical Vision (VV)', desc:'Elongating vertical lines, airy feel.', tags:['Matte','Gloss'],
-   img: 'images/Vertical-Vision_Closed-Up_1.jpg',
-   gallery:['images/Vertical-Vision_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vertical Lines'}]},
-  {id:'interval', name:'Interval (IA)', desc:'Staggered brick-style, timeless look.', tags:['Gloss','Matte'],
-   img: 'images/Interval_Closed-Up_1.jpg',
-   gallery:['images/Interval_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Brick Stagger'}]},
-  {id:'tt', name:'4"×15" Confetti (TT)', desc:'Playful random pattern, modern vibe.', tags:['Matte'],
-   img: 'images/4x15-Confetti_Closed-Up_1.jpg',
-   gallery:['images/4x15-Confetti_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte'},{l:'Tile Size',v:'4"×15"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Confetti'}]},
-  {id:'ba', name:'2"×14" Bamboo (BA)', desc:'Linear bamboo-inspired texture.', tags:['Semi-Gloss'],
-   img: 'images/2x14-Bamboo_Closed-Up_1.jpg',
-   gallery:['images/2x14-Bamboo_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Tile Size',v:'2"×14"'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Bamboo'}]},
-  {id:'ve', name:'10"×20" Vertical (VE)', desc:'Oversized format, bold statement.', tags:['Matte','Gloss'],
-   img: 'images/10x20-Vertical_Closed-Up_1.jpg',
-   gallery:['images/10x20-Vertical_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'10"×20"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vertical'}]},
-  {id:'sa', name:'Stars (SA)', desc:'Unique star pattern, eye-catching.', tags:['Gloss'],
-   img: 'images/Stars_Closed-Up_1.jpg',
-   gallery:['images/Stars_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Star'}]},
-  {id:'h4', name:'Chevron H4 (H4)', desc:'Symmetrical chevron, elegant flow.', tags:['Matte','Semi-Gloss'],
-   img: 'images/Chevron-H4_Closed-Up_1.jpg',
-   gallery:['images/Chevron-H4_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Chevron H4'}]},
-  {id:'cp', name:'4×12 Smooth Tile (CP)', desc:'Clean smooth surface, easy maintenance.', tags:['Matte','Gloss'],
-   img: 'images/4x12-Tile_Closed-up_1.jpg',
-   gallery:['images/4x12-Tile_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Tile Size',v:'4"×12"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Smooth Tile'}]},
-  {id:'theory', name:'Theory (TH)', desc:'Soft horizontal lines, modern & elegant.', tags:['Matte','Gloss'],
-   img: 'images/Theory_SW_1.jpg',
-   gallery:['images/Theory_SW_2.jpg','images/Theory_SW_3.jpg','images/Theory_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4 - 5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Horizontal Lines'}]},
-  {id:'te', name:'4"×8" (TE)', desc:'Compact versatile tile format.', tags:['Matte'],
-   img: 'images/4x8_Closed-Up_1.jpg',
-   gallery:['images/4x8_SW_3.jpg'],
-   specs:[{l:'Finish',v:'Matte'},{l:'Tile Size',v:'4"×8"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Classic'}]},
-  {id:'fa', name:'Fan (FA)', desc:'Art deco inspired fan pattern.', tags:['Matte','Gloss'],
-   img: 'images/Fan_Closed-Up_1.jpg',
-   gallery:['images/Fan_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Art Deco Fan'}]},
-  {id:'santorini', name:'Santorini', desc:'Mediterranean-inspired warm finish.', tags:['Semi-Gloss'],
-   img: 'images/Santorini_Closed-Up_1.jpg',
-   gallery:['images/Santorini_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Style',v:'Mediterranean'}]},
-  {id:'du', name:'Dune (DU)', desc:'Organic sand dune texture.', tags:['Semi-Gloss'],
-   img: 'images/Dune_SW_3.jpg',
-   gallery:['images/Dune_SW_4.jpg','images/Dune_SW_5.jpg','images/Dune_Closed-Up_1.jpg'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Organic Dune'}]},
-  {id:'ventana', name:'Ventana (VN)', desc:'Clean geometric tile pattern.', tags:['Matte','Semi-Gloss'],
-   img: 'images/Ventana_Closed-Up_1-1.jpg',
-   gallery:['images/Ventana_SW_1-1.jpg'],
-   specs:[{l:'Finish',v:'Matte / Semi-Gloss'},{l:'Pieces',v:'4'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Geometric Tile'}]},
-  {id:'sv', name:'6x4x24 Vision (SV)', desc:'Mixed-dimension vision pattern.', tags:['Semi-Gloss'],
-   img: 'images/6x4x24-Vision_Closed-Up_1.jpg',
-   gallery:['images/6x4x24-Vision_SW_1.jpg'],
-   specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Tile Size',v:'6×4×24"'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vision Mix'}]},
-];
-
-const pans = [
-  {id:'cd', name:'Center Standard Drain', desc:'Most common layout.', tags:['Custom Sizes'],
-   img:BASE+'Center-Standard-Drain_SW_1.png',
-   gallery:['images/Interval_Closed-Up_1.jpg',BASE+'Center-Standard-Drain_SW_2.png'],
-   specs:[{l:'Drain',v:'Center'},{l:'Sizes',v:'Standard + Custom'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'No'},{l:'Threshold',v:'4" Standard'},{l:'Best For',v:'Residential / Hotel'}]},
-  {id:'tr', name:'Trench Drain', desc:'Linear drainage, sleek modern look.', tags:['Hotel Spec'],
-   img:BASE+'Trench-Drain_Rejilla_SW_1.png',
-   gallery:[BASE+'accessorie-ledge.png'],
-   specs:[{l:'Drain',v:'Linear / Trench'},{l:'Position',v:'Wall Edge'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'Optional'},{l:'Threshold',v:'Low Profile'},{l:'Best For',v:'Contemporary / Upscale'}]},
-  {id:'rollin', name:'Roll-In Trench Drain', desc:'Barrier-free, assisted living.', tags:['ADA'],
-   img:BASE+'Roll-In-Trench-Drain_Rejilla_SW_1.png',
-   gallery:[BASE+'Roll-In-Trench-Drain_Rejilla_SW_2.png'],
-   specs:[{l:'Drain',v:'Linear'},{l:'Threshold',v:'Zero / Barrier-Free'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'Yes — Title III'},{l:'Best For',v:'Healthcare / Senior Living'},{l:'Cert',v:'ADA Compliant'}]},
-  {id:'ada', name:'ADA Shower Pan', desc:'Meets ADA accessibility standards.', tags:['ADA Compliant'],
-   img:BASE+'ADA_SW_1.png',
-   gallery:[BASE+'6x6SoapShelf.png',BASE+'ADA_SW_2.png'],
-   specs:[{l:'Drain',v:'Center or Linear'},{l:'Threshold',v:'Zero Entry'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'Yes — Title III'},{l:'Sizes',v:'36"×36" to 60"×36"'},{l:'Best For',v:'Commercial / Healthcare'}]},
-  {id:'cr', name:'Corner Drain', desc:'Angled drain for corner showers.', tags:['Standard'],
-   img:BASE+'Corner-Drain_SW_1.png',
-   gallery:[BASE+'well-mounted.png',BASE+'Corner-Drain_SW_2.png'],
-   specs:[{l:'Drain',v:'Corner'},{l:'Shape',v:'Corner / Neo-Angle'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'No'},{l:'Best For',v:'Corner Showers'},{l:'Finish',v:'Matching'}]},
-  {id:'rv', name:'Reversible Drain', desc:'Flexible drain position options.', tags:['Standard'],
-   img:BASE+'Reversible-Drain_SW_1.png',
-   gallery:[BASE+'7x7footrest.png'],
-   specs:[{l:'Drain',v:'Reversible L/R'},{l:'Flexibility',v:'Left or Right'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'No'},{l:'Best For',v:'Tight Layouts'},{l:'Finish',v:'Matching'}]},
-  {id:'ne', name:'Corner Neo Drain', desc:'Compact neo-angle with corner drain.', tags:['Standard'],
-   img:BASE+'Corner-Neo-Drain_SW_1.png',
-   gallery:[BASE+'angled_soap_dish.png'],
-   specs:[{l:'Drain',v:'Corner'},{l:'Shape',v:'Neo-Angle'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'No'},{l:'Best For',v:'Neo-Angle Showers'},{l:'Finish',v:'Matching'}]},
-  {id:'cu', name:'Curve Drain Pan', desc:'Smooth curved design, elegant entry.', tags:['Standard'],
-   img:BASE+'Curve-Drain_SW_1.png',
-   gallery:[BASE+'RL_Footrest.png',BASE+'Curve-Drain_SW_2.png'],
-   specs:[{l:'Drain',v:'Center'},{l:'Entry',v:'Curved / Rounded'},{l:'Material',v:'Cultured Marble'},{l:'ADA',v:'No'},{l:'Best For',v:'Curved Showers'},{l:'Finish',v:'Matching'}]},
-  {id:'custom', name:'Custom Pan', desc:'Tailored to your exact specs.', tags:['Made to Order'],
-   img:BASE+'Custom_SW_1-2.png',
-   gallery:[BASE+'Custom_SW_2.png'],
-   specs:[{l:'Size',v:'Any Specification'},{l:'Lead Time',v:'2–3 Weeks'},{l:'Material',v:'Cultured Marble'},{l:'Drain',v:'Any Position'},{l:'ADA',v:'Available'},{l:'Best For',v:'Renovation / Custom Build'}]},
-];
-
-const accessories = [
-  {id:'niche', name:'Recessed Niche (NF)', desc:'Built-in shelf, seamless look.', tags:['Multiple Sizes'],
-   img:BASE+'Niche_SW_1.png',gallery:['images/Interval_Closed-Up_1.jpg',BASE+'Niche_SW_2.png'],
-   specs:[{l:'Sizes',v:'S / M / L'},{l:'Depth',v:'3½"'},{l:'Material',v:'Cultured Marble'},{l:'Mount',v:'Recessed In-Wall'},{l:'Finish',v:'Matches Surround'},{l:'Best For',v:'All Installations'}]},
-  {id:'cornerniche', name:'Corner Niche (NI)', desc:'Space-saving corner storage.', tags:['Multiple Sizes'],
-   img:BASE+'Corner-Niche_SW_1.png',gallery:[BASE+'Corner-Niche_SW_2.png'],
-   specs:[{l:'Shape',v:'Corner'},{l:'Material',v:'Cultured Marble'},{l:'Mount',v:'Corner Recessed'},{l:'Finish',v:'Matches Surround'},{l:'Sizes',v:'Standard'},{l:'Best For',v:'All Installations'}]},
-  {id:'cm', name:'Corner Mount Soap Dish (CM)', desc:'Durable soap holder.', tags:['Standard'],
-   img:BASE+'Corner-Mount-Soap-Dish_SW_1.png',gallery:[BASE+'Corner-Mount-Soap-Dish_SW_2.png'],
-   specs:[{l:'Mount',v:'Corner'},{l:'Material',v:'Cultured Marble'},{l:'Drain',v:'Slotted'},{l:'Finish',v:'Matches Surround'},{l:'Adhesive',v:'Included'},{l:'Best For',v:'All Showers'}]},
-  {id:'hd', name:'Shampoo Holder (HD)', desc:'Wall-mounted product organizer.', tags:['Standard'],
-   img:BASE+'Shampoo-Holder_SW_1.png',gallery:[BASE+'Shampoo-Holder_SW_2.png'],
-   specs:[{l:'Mount',v:'Wall'},{l:'Material',v:'Cultured Marble'},{l:'Drain',v:'Slotted'},{l:'Finish',v:'Matches Surround'},{l:'Capacity',v:'Large'},{l:'Best For',v:'All Showers'}]},
-  {id:'trim', name:'Trim Strip', desc:'Polished edge finish.', tags:['Standard'],
-   img:BASE+'Trim-Strip_SW_3-1.png',gallery:[BASE+'Trim-Strip_SW_2-1.png'],
-   specs:[{l:'Profiles',v:'L / J / T / Cove'},{l:'Material',v:'PVC / Aluminum'},{l:'Length',v:"8' Standard"},{l:'Colors',v:'Matches All Series'},{l:'Finish',v:'Matte / Gloss'},{l:'Best For',v:'All Installations'}]},
-  {id:'rl', name:'Right / Left Footrest', desc:'Fold-down or fixed, ADA option.', tags:['ADA Option'],
-   img:BASE+'R-and-L-Footrest_SW_1.png',gallery:[BASE+'RL_Footrest.png'],
-   specs:[{l:'Types',v:'Fixed / Fold-Down'},{l:'Material',v:'Stone + Steel'},{l:'Capacity',v:'250 lbs'},{l:'ADA',v:'Available'},{l:'Mount',v:'Wall'},{l:'Best For',v:'ADA / Healthcare'}]},
-  {id:'footrest66', name:'6"×6" Footrest', desc:'Slip-resistant built-in footrest.', tags:['ADA Option'],
-   img:BASE+'6x6-Footrest_SW_2.png',gallery:[BASE+'6x6-Footrest_SW_4.png'],
-   specs:[{l:'Size',v:'6"×6"'},{l:'Material',v:'Cultured Marble'},{l:'Surface',v:'Slip-Resistant'},{l:'ADA',v:'Available'},{l:'Mount',v:'Wall'},{l:'Best For',v:'All Showers'}]},
-  {id:'ledge', name:'Accessory Ledge', desc:'Wide ledge for multiple products.', tags:['Standard'],
-   img:BASE+'Accessory-Ledge_SW_1.png',gallery:[BASE+'accessorie-ledge.png'],
-   specs:[{l:'Size',v:'Wide Format'},{l:'Material',v:'Cultured Marble'},{l:'Mount',v:'Wall Recessed'},{l:'Finish',v:'Matches Surround'},{l:'Drain',v:'Slotted'},{l:'Best For',v:'All Showers'}]},
-  {id:'wm', name:'Wall-Mounted Soap Dish (WM)', desc:'Clean wall-mount option.', tags:['Standard'],
-   img:BASE+'Wall-Mounted-Soap-Dish_SW_1.png',gallery:[BASE+'well-mounted.png'],
-   specs:[{l:'Mount',v:'Wall'},{l:'Material',v:'Cultured Marble'},{l:'Drain',v:'Slotted'},{l:'Finish',v:'Matches Surround'},{l:'Adhesive',v:'Included'},{l:'Best For',v:'All Showers'}]},
-  {id:'rs', name:'Recessed Soap Dish (RS)', desc:'Integrated flush design.', tags:['Standard'],
-   img:BASE+'Recessed-Soap-dish_SW_1.png',gallery:[BASE+'Recessed-Soap-dish_SW_2.png'],
-   specs:[{l:'Mount',v:'Recessed'},{l:'Material',v:'Cultured Marble'},{l:'Drain',v:'Slotted'},{l:'Finish',v:'Matches Surround'},{l:'Depth',v:'Flush'},{l:'Best For',v:'All Showers'}]},
-  {id:'lc', name:'Large Corner Holder (LC)', desc:'Extra capacity corner storage.', tags:['Standard'],
-   img:BASE+'Large-Corner-Holder_SW_1.png',gallery:[BASE+'Large-Corner-Holder_SW_2.png'],
-   specs:[{l:'Mount',v:'Corner'},{l:'Material',v:'Cultured Marble'},{l:'Capacity',v:'Large'},{l:'Drain',v:'Slotted'},{l:'Finish',v:'Matches Surround'},{l:'Best For',v:'All Showers'}]},
-  {id:'as', name:'Angled Soap Dish (AS)', desc:'Angled surface prevents pooling.', tags:['Standard'],
-   img:BASE+'Angled-soap-dish-15-x-3_SW_1.png',gallery:[BASE+'angled_soap_dish.png'],
-   specs:[{l:'Angle',v:'Slanted Drain'},{l:'Material',v:'Cultured Marble'},{l:'Size',v:'15"×3"'},{l:'Finish',v:'Matches Surround'},{l:'Drain',v:'Self-Draining'},{l:'Best For',v:'All Showers'}]},
-  {id:'shelf66', name:'6"×6" Soap Shelf', desc:'Compact shelf for essentials.', tags:['Standard'],
-   img:BASE+'6x6-Soap-Shelf_SW_1.png',gallery:[BASE+'6x6SoapShelf.png'],
-   specs:[{l:'Size',v:'6"×6"'},{l:'Material',v:'Cultured Marble'},{l:'Mount',v:'Wall'},{l:'Finish',v:'Matches Surround'},{l:'Drain',v:'Slotted'},{l:'Best For',v:'All Showers'}]},
-  {id:'shelf77', name:'7"×7" Soap Shelf', desc:'Slightly larger, more capacity.', tags:['Standard'],
-   img:BASE+'7x7-Soap-Shelf_SW_1.png',gallery:[BASE+'7x7-Soap-Shelf_SW_2.png'],
-   specs:[{l:'Size',v:'7"×7"'},{l:'Material',v:'Cultured Marble'},{l:'Mount',v:'Wall'},{l:'Finish',v:'Matches Surround'},{l:'Drain',v:'Slotted'},{l:'Best For',v:'All Showers'}]},
-  {id:'ce', name:'Center Mount Soap Dish (CE)', desc:'Centered wall mount design.', tags:['Standard'],
-   img:BASE+'Center-Mount-Soap-Dish_SW_2.png',gallery:[BASE+'Center-Mount-Soap-Dish_SW_3.png'],
-   specs:[{l:'Mount',v:'Wall Center'},{l:'Material',v:'Cultured Marble'},{l:'Drain',v:'Slotted'},{l:'Finish',v:'Matches Surround'},{l:'Adhesive',v:'Included'},{l:'Best For',v:'All Showers'}]},
-  {id:'cornertrim', name:'Corner Trim (CT)', desc:'Clean corner edge finish.', tags:['Standard'],
-   img:'images/Corner-Trim-Strip_SW_3.png',
-   gallery:['images/Corner-Trim-Strip_SW_1.png'],
-   specs:[{l:'Profile',v:'Corner'},{l:'Material',v:'PVC / Marble'},{l:'Length',v:"8' Standard"},{l:'Colors',v:'Matches All'},{l:'Finish',v:'Matte / Gloss'},{l:'Best For',v:'All Installations'}]},
-  {id:'footrest77', name:'7"×7" Footrest', desc:'Larger footrest, extra comfort.', tags:['ADA Option'],
-   img:BASE+'7x7-Footrest_SW_2.png',gallery:[BASE+'7x7footrest.png'],
-   specs:[{l:'Size',v:'7"×7"'},{l:'Material',v:'Cultured Marble'},{l:'Surface',v:'Slip-Resistant'},{l:'ADA',v:'Available'},{l:'Mount',v:'Wall'},{l:'Best For',v:'All Showers'}]},
-];
-
-const tubs = [
-  {id:'bt', name:'Free Standing Tub (BT)', desc:'Freestanding tub for premium suites.', tags:['Custom'],
-   img:BASE+'Tina_SW_1.png',gallery:[BASE+'Tina_SW_3.png',BASE+'Tina_SW_2.png'],
-   specs:[{l:'Type',v:'Free Standing'},{l:'Material',v:'Cultured Marble'},{l:'Finish',v:'Gloss'},{l:'Installation',v:'Floor Mount'},{l:'Custom',v:'Available'},{l:'Best For',v:'Premium Suites'}]},
-];
-
-// All products for modal lookup
-const allProducts = {};
-[...surrounds,...pans,...accessories,...tubs].forEach(p=>allProducts[p.id]=p);
-
-function tagClass(t){
-  if(t==='ADA'||t==='ADA Compliant'||t==='ADA Option') return 'ada';
-  if(t==='Made to Order'||t==='Custom') return 'custom';
-  return '';
-}
-
-function buildCard(p){
-  const tagsHtml = p.tags.map(t=>`<span class="prod-tag ${tagClass(t)}">${t}</span>`).join('');
-  return `<div class="prod-card" onclick="openModal('${p.id}')">
-    <div class="prod-card-img"><img src="${p.img}" alt="${p.name}" loading="lazy"/></div>
-    <div class="prod-card-body">
-      <div class="prod-card-name">${p.name}</div>
-      <div class="prod-card-desc">${p.desc}</div>
-      <div class="prod-card-tags">${tagsHtml}</div>
-    </div>
-  </div>`;
-}
-
-document.getElementById('grid-surrounds').innerHTML = surrounds.map(buildCard).join('');
-document.getElementById('grid-pans').innerHTML = pans.map(buildCard).join('');
-document.getElementById('grid-accessories').innerHTML = accessories.map(buildCard).join('');
-document.getElementById('grid-tub').innerHTML = tubs.map(buildCard).join('');
-
-// ── VIEWER STATE ──
-const DEFAULT_SCALE=2.5;
-let viewerScale=DEFAULT_SCALE, viewerX=0, viewerY=0;
-let isDragging=false, dragSX=0, dragSY=0, dragOX=0, dragOY=0;
-
-function applyTransform(){
-  document.getElementById('modal-img').style.transform=`translate(${viewerX}px,${viewerY}px) scale(${viewerScale})`;
-}
-function zoomIn(){viewerScale=Math.min(5,viewerScale+0.3);applyTransform();}
-function zoomOut(){viewerScale=Math.max(0.7,viewerScale-0.3);if(viewerScale<=1){viewerX=0;viewerY=0;}applyTransform();}
-function resetZoom(){viewerScale=DEFAULT_SCALE;viewerX=0;viewerY=0;applyTransform();}
-
-// Wheel zoom + drag-to-pan + click-to-lightbox
-let significantDrag=false;
-(function(){
-  const v=document.getElementById('modal-viewer');
-  v.addEventListener('wheel',e=>{
-    e.preventDefault();
-    const d=e.deltaY<0?0.2:-0.2;
-    viewerScale=Math.min(5,Math.max(0.7,viewerScale+d));
-    if(viewerScale<=1){viewerX=0;viewerY=0;}
-    applyTransform();
-  },{passive:false});
-  v.addEventListener('mousedown',e=>{
-    if(e.button!==0)return;
-    significantDrag=false;
-    isDragging=true; dragSX=e.clientX; dragSY=e.clientY; dragOX=viewerX; dragOY=viewerY;
-    if(viewerScale>1) v.classList.add('dragging');
-  });
-  window.addEventListener('mousemove',e=>{
-    if(!isDragging)return;
-    const dx=e.clientX-dragSX, dy=e.clientY-dragSY;
-    if(Math.abs(dx)>5||Math.abs(dy)>5) significantDrag=true;
-    if(viewerScale>1){viewerX=dragOX+dx; viewerY=dragOY+dy; applyTransform();}
-  });
-  window.addEventListener('mouseup',e=>{
-    if(!isDragging)return;
-    isDragging=false;
-    document.getElementById('modal-viewer').classList.remove('dragging');
-    if(!significantDrag && !e.target.closest('.viewer-btn,.modal-close')){
-      const r=v.getBoundingClientRect();
-      if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){
-        openLightbox(document.getElementById('modal-img').src);
-      }
-    }
-    significantDrag=false;
-  });
-})();
-
-function openLightbox(src){
-  const lb=document.getElementById('lightbox');
-  const img=document.getElementById('lightbox-img');
-  img.src=src;
-  lbScale=1; lbX=0; lbY=0; applyLbTransform();
-  lb.style.display='flex';
-}
-function closeLightbox(){document.getElementById('lightbox').style.display='none';}
-
-// ── LIGHTBOX ZOOM + DRAG-TO-PAN ──
-let lbScale=1, lbX=0, lbY=0, lbDragging=false, lbSX=0, lbSY=0, lbOX=0, lbOY=0, lbMoved=false;
-function applyLbTransform(){
-  const img=document.getElementById('lightbox-img');
-  img.style.transform=`translate(${lbX}px,${lbY}px) scale(${lbScale})`;
-  img.style.cursor=lbScale>1?'grab':'zoom-in';
-}
-(function(){
-  const img=document.getElementById('lightbox-img');
-  img.addEventListener('wheel',e=>{
-    e.preventDefault(); e.stopPropagation();
-    const d=e.deltaY<0?0.25:-0.25;
-    lbScale=Math.min(5,Math.max(1,lbScale+d));
-    if(lbScale<=1){lbX=0;lbY=0;}
-    applyLbTransform();
-  },{passive:false});
-  img.addEventListener('mousedown',e=>{
-    e.preventDefault(); e.stopPropagation();
-    lbMoved=false;
-    lbDragging=true; lbSX=e.clientX; lbSY=e.clientY; lbOX=lbX; lbOY=lbY;
-    img.style.cursor='grabbing';
-  });
-  window.addEventListener('mousemove',e=>{
-    if(!lbDragging)return;
-    const dx=e.clientX-lbSX, dy=e.clientY-lbSY;
-    if(Math.abs(dx)>4||Math.abs(dy)>4) lbMoved=true;
-    if(lbScale>1){lbX=lbOX+dx; lbY=lbOY+dy; applyLbTransform();}
-  });
-  window.addEventListener('mouseup',()=>{
-    if(!lbDragging)return;
-    lbDragging=false;
-    applyLbTransform();
-  });
-  img.addEventListener('click',e=>{
-    e.stopPropagation();
-    if(lbMoved){lbMoved=false; return;}
-    if(lbScale===1){lbScale=2.5; applyLbTransform();}
-    else{lbScale=1; lbX=0; lbY=0; applyLbTransform();}
-  });
-  img.addEventListener('dblclick',e=>{e.stopPropagation();});
-})();
-
-function setThumbActive(el){
-  document.querySelectorAll('.modal-thumb').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.combo-item').forEach(c=>c.classList.remove('active'));
-  if(el) el.classList.add('active');
-}
-
-const COMBO_PANS=[
-  {name:'Center Drain', img:BASE+'Center-Standard-Drain_SW_1.png'},
-  {name:'Trench Drain',  img:BASE+'Trench-Drain_Rejilla_SW_1.png'},
-  {name:'ADA Pan',       img:BASE+'ADA_SW_1.png'},
-  {name:'Custom Pan',    img:BASE+'Custom_SW_1-2.png'},
-];
-
-function openModal(id){
-  const p=allProducts[id]; if(!p) return;
-  resetZoom();
-
-  document.getElementById('modal-img').src=p.img;
-  document.getElementById('modal-cat').textContent='Shower Walls';
-  document.getElementById('modal-title').textContent=p.name;
-  document.getElementById('modal-desc').textContent=p.desc+' — Engineered from high-quality cultured marble, built for durability and easy installation in commercial and residential projects.';
-  document.getElementById('modal-specs').innerHTML=p.specs.map(s=>`<div class="modal-spec"><div class="modal-spec-label">${s.l}</div><div class="modal-spec-value">${s.v}</div></div>`).join('');
-
-  // Thumbnail strip — deduplicated
-  const allImgs=[p.img,...(p.gallery||[])].filter((v,i,a)=>a.indexOf(v)===i);
-  const strip=document.getElementById('modal-thumbstrip');
-  strip.innerHTML=allImgs.map((src,i)=>`<div class="modal-thumb${i===0?' active':''}" data-src="${src}"><img src="${src}" alt="" loading="lazy"/></div>`).join('');
-  strip.querySelectorAll('.modal-thumb').forEach(thumb=>{
-    thumb.addEventListener('click',function(){
-      document.getElementById('modal-img').src=this.dataset.src;
-      resetZoom(); setThumbActive(this);
-    });
-  });
-
-  // Combo section — shown only for surrounds
-  const isSurround=surrounds.some(s=>s.id===id);
-  const comboEl=document.getElementById('modal-combo');
-  if(isSurround){
-    comboEl.style.display='';
-    document.getElementById('modal-combo-grid').innerHTML=COMBO_PANS.map(pan=>
-      `<div class="combo-item" data-src="${pan.img}"><img src="${pan.img}" alt="${pan.name}" loading="lazy"/><span>${pan.name}</span></div>`
-    ).join('');
-    document.querySelectorAll('.combo-item').forEach(item=>{
-      item.addEventListener('click',function(){
-        document.getElementById('modal-img').src=this.dataset.src;
-        resetZoom(); setThumbActive(null); this.classList.add('active');
-      });
-    });
-  } else {
-    comboEl.style.display='none';
-  }
-
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-
-function closeModal(){
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow='';
-  resetZoom();
-}
-function closeModalOutside(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    if(document.getElementById('lightbox').style.display!=='none') closeLightbox();
-    else closeModal();
-  }
-});
-document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open')));
-</script>
 </body>
 </html>

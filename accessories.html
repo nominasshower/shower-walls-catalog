@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Accessories — Shower Walls</title>
+<meta name="description" content="Niches, soap dishes, footrests, trim strips and more — matches every surround."/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html"><img src="images/sw-logo.png" alt="Shower Walls" style="height:44px;width:auto"/></a>
+  </div>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html#about">About Us</a>
+    <a href="https://shower-walls.net" target="_blank">Brands</a>
+    <div class="nav-dropdown" id="products-dropdown">
+      <button type="button" class="nav-dropdown-toggle active" onclick="document.getElementById('products-dropdown').classList.toggle('open')">Products ▾</button>
+      <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu-inner">
+        <a href="surrounds.html">Tub & Shower Surrounds</a>
+        <a href="pans.html">Shower Pans</a>
+        <a href="accessories.html" class="active">Accessories</a>
+        <a href="tub.html">Free Standing Tub</a>
+        </div>
+      </div>
+    </div>
+    <a href="colors.html">Colors</a>
+    <a href="index.html#download">Catalog</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <button class="nav-burger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-cta" onclick="location.href='index.html#contact'">Get a Quote</button>
+</nav>
+
+<!-- CATEGORY HEADER -->
+<section id="products">
+  <div class="sec-header" style="background:var(--light)">
+    <a href="index.html#products" style="font-size:.82rem;font-weight:600;color:var(--gray);display:inline-block;margin-bottom:14px">← Back to Products</a>
+    <div class="sec-tag">What We Make</div>
+    <div class="sec-divider"></div>
+    <h2 id="cat-title">Accessories</h2>
+    <p id="cat-count">Niches, soap dishes, footrests, trim strips and more — matches every surround.</p>
+  </div>
+
+  <div class="products-section">
+    <div class="products-grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="nav-logo-text">Shower Walls</span>
+      <p>One of the largest engineered stone manufacturers in North America. Supplying hotels, multifamily and student housing since 2008.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="surrounds.html">Tub &amp; Shower Surrounds</a></li>
+        <li><a href="pans.html">Shower Pans</a></li>
+        <li><a href="accessories.html">Accessories</a></li>
+        <li><a href="tub.html">Free Standing Tub</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="https://shower-walls.net" target="_blank">Our Brands</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#download">Request Catalog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Shower Walls. All rights reserved. Monterrey, Nuevo León, México.</p>
+    <p>sales@shower-walls.net</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <!-- Image viewer with zoom/pan -->
+    <div class="modal-viewer" id="modal-viewer">
+      <div class="modal-viewer-img-wrap" id="viewer-wrap">
+        <img id="modal-img" src="" alt="" class="modal-viewer-img" draggable="false"/>
+      </div>
+      <div class="viewer-controls">
+        <button class="viewer-btn" onclick="zoomIn()" title="Zoom in">＋</button>
+        <button class="viewer-btn" onclick="zoomOut()" title="Zoom out">－</button>
+        <button class="viewer-btn" onclick="resetZoom()" title="Reset">⤢</button>
+      </div>
+      <div class="viewer-zoom-hint">Click to enlarge · Scroll to zoom · Drag to move</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <!-- Title -->
+    <div class="modal-header-text">
+      <span class="mcat" id="modal-cat"></span>
+      <h2 id="modal-title"></h2>
+    </div>
+    <!-- Thumbnail strip -->
+    <div class="modal-thumbstrip" id="modal-thumbstrip"></div>
+    <!-- Combo section (pans that pair with this surround) -->
+    <div class="modal-combo" id="modal-combo" style="display:none">
+      <div class="modal-combo-label">Combine with a Shower Pan</div>
+      <div class="modal-combo-grid" id="modal-combo-grid"></div>
+    </div>
+    <!-- Body -->
+    <div class="modal-body">
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-specs-grid" id="modal-specs"></div>
+      <div class="modal-actions">
+        <button class="btn-modal-primary" onclick="location.href='index.html#contact'">Request a Quote</button>
+        <button class="btn-modal-secondary" onclick="closeModal()">Back to Catalog</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX (full-screen image) -->
+<div id="lightbox" onclick="if(event.target===this)closeLightbox()"
+  style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.93);
+         align-items:center;justify-content:center;padding:20px;overflow:hidden">
+  <img id="lightbox-img" src="" alt=""
+    style="max-width:92vw;max-height:92vh;object-fit:contain;border-radius:10px;
+           box-shadow:0 24px 80px rgba(0,0,0,.6);cursor:grab;touch-action:none;user-select:none"/>
+  <button onclick="closeLightbox()"
+    style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,.15);
+           backdrop-filter:blur(6px);border:none;color:#fff;font-size:1.4rem;line-height:1;
+           width:44px;height:44px;border-radius:50%;cursor:pointer;
+           display:flex;align-items:center;justify-content:center">✕</button>
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+              color:rgba(255,255,255,.45);font-size:.75rem;letter-spacing:.5px">
+    Scroll or drag to zoom &amp; pan · Click outside or press Esc to close
+  </div>
+</div>
+<script src="js/catalog.js"></script>
+<script>
+renderCategoryGrid('accessories');
+</script>
+</body>
+</html>
