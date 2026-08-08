@@ -89,6 +89,19 @@ const surrounds = [
    img: 'images/6x4x24-Vision_Closed-Up_1.jpg',
    gallery:['images/6x4x24-Vision_SW_1.jpg'],
    specs:[{l:'Finish',v:'Semi-Gloss'},{l:'Tile Size',v:'6×4×24"'},{l:'Thickness',v:'5/16"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vision Mix'}]},
+  {id:'athens', name:'Athens (AT)', desc:'Handcrafted subway look with soft wave texture.', tags:['Gloss','Matte'],
+   img: 'images/Athens_Closed-Up_1.jpg',
+   gallery:['images/Athens_SW_1.jpg','images/Athens_SW_2.jpg','images/Athens_SW_3.jpg'],
+   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Tile Size',v:'4"×8" Subway'},{l:'Edge',v:'Flat Edge'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Engineered Stone'}]},
+  {id:'v36', name:'3x6 Vision (V3)', desc:'Compact vision texture, subway proportions.', tags:['Gloss'],
+   img: 'images/3x6-Vision_Closed-Up_1.jpg',
+   specs:[{l:'Finish',v:'Gloss'},{l:'Tile Size',v:'3"×6"'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Material',v:'Cultured Marble'},{l:'Pattern',v:'Vision'}]},
+  {id:'stacked', name:'6x24 Stacked (ST)', desc:'Staggered stacked-plank look.', tags:['Gloss','Matte'],
+   img: 'images/6x24-Stacked_Closed-Up_1.jpg',
+   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Edge',v:'Flat Edge'},{l:'Material',v:'Engineered Stone'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Pattern',v:'Stacked'}]},
+  {id:'smooth', name:'Smooth (SM)', desc:'Clean unembossed surface, minimal seams.', tags:['Gloss'],
+   img: 'images/Smooth_Closed-Up_1.jpg',
+   specs:[{l:'Finish',v:'Gloss'},{l:'Surface',v:'Smooth / Flat'},{l:'Material',v:'Cultured Marble'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Best For',v:'Minimalist Design'}]},
 ];
 
 const pans = [
