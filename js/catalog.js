@@ -102,6 +102,14 @@ const surrounds = [
   {id:'smooth', name:'Smooth (SM)', desc:'Clean unembossed surface, minimal seams.', tags:['Gloss'],
    img: 'images/Smooth_Closed-Up_1.jpg',
    specs:[{l:'Finish',v:'Gloss'},{l:'Surface',v:'Smooth / Flat'},{l:'Material',v:'Cultured Marble'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Best For',v:'Minimalist Design'}]},
+  {id:'modern', name:'6x24 Modern (MO)', desc:'Clean modern subway, large format.', tags:['Gloss','Matte'],
+   img: 'images/6x24-Modern_Closed-Up_1.jpg',
+   gallery:['images/6x24-Modern_SW_1.jpg'],
+   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Edge',v:'Flat Edge'},{l:'Material',v:'Engineered Stone'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Pattern',v:'Modern'}]},
+  {id:'vertcontemp', name:'4x12 Vertical Contemporary (VT)', desc:'Vertically stacked contemporary tile look.', tags:['Gloss','Matte'],
+   img: 'images/4x12-Vertical-Contemporary_Closed-Up_1.jpg',
+   gallery:['images/4x12-Vertical-Contemporary_SW_1.jpg'],
+   specs:[{l:'Finish',v:'Gloss / Matte'},{l:'Tile Size',v:'4"×12"'},{l:'Material',v:'Cultured Marble'},{l:'Thickness',v:'1/4"'},{l:'Height',v:'Up to 96"'},{l:'Pattern',v:'Vertical Contemporary'}]},
 ];
 
 const pans = [
